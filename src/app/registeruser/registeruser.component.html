@@ -1,0 +1,68 @@
+
+
+<div align="center">
+<h2> Learning Management System!!!</h2>
+</div>
+<section class="testimonial py-5" id="testimonial">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-4 py-5 bg-primary text-white text-center ">
+                <div class=" ">
+                    <div class="card-body">
+                        <!-- <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:30%"> -->
+                        <h2 class="py-3">Registration</h2>
+                        <p> Upgrade your technical skills with our Learning Management System !!!
+
+</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 py-5 border">
+                <h4 class="pb-4">Please fill with your details</h4>
+                <form #myForm="ngForm" class="form-horizontal" (ngSubmit)="register()">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <input  name="userName"  class="form-control" type="text" [(ngModel)]="model.userName" required placeholder="Your Name">
+                        </div>
+                    </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <input type="email"  name="userEmail" class="form-control" [(ngModel)]="model.userEmail"  required
+                          placeholder="Your Email">
+                        </div>
+                      </div>
+                       <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <input type="password"  name="userPassword" class="form-control" [(ngModel)]="model.userPassword"  required
+                          placeholder="Your Password">
+                        </div>
+                      </div>
+                       <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <input type="password"  name="conformPassword" class="form-control" [(ngModel)]="conformPassword"   required
+                          placeholder="Conform Password">
+                        </div>
+                      </div>
+                 
+                    <div class="form-row">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                  <label class="form-check-label" for="invalidCheck2">
+                                    <small>By clicking Submit, you agree to our Terms & Conditions, Visitor Agreement and Privacy Policy.</small>
+                                  </label>
+                                </div>
+                              </div>
+                    
+                          </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

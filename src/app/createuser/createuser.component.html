@@ -1,0 +1,59 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">Employee Entry Form :</div>
+  <div class="panel-body">
+  <form #myForm="ngForm" class="form-horizontal" (submit)="create()">
+ 
+  
+  <div class="form-group">
+    <label for="position" class="col-sm-2 control-label">Email : </label>
+    <div class="col-xs-3">
+      <input type="text" class="form-control" [(ngModel)]="model.userEmail" name="email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="emp_name" class="col-sm-2 control-label">Name : </label>
+    <div class="col-xs-3">
+      <input type="text" class="form-control" [(ngModel)]="model.userName" name="name" >
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-8">
+      <button type="submit" class="btn btn-success">Save</button>
+       <button type="reset"  class="btn btn-info">Cancel</button>
+    </div>
+   
+  </div>
+</form>
+
+  </div>
+</div>
+
+
+<div class="container">
+<table class="table table-bordered">
+		  <thead>
+			<tr>
+         <td>S.No</td>
+			  <td>Email</td>
+        <td>Id</td>
+			  <td>Name</td>
+			  <td width="200" align="center">Action</td>
+			</tr>
+		  </thead>
+		  <tbody>
+			 <tr  *ngFor="let user of users">
+          	<td>*</td>
+         	<td>{{user.userEmail}}</td>
+        <td>{{user.userId}}</td> 
+				<td>{{user.userName}}</td>
+			
+				<td width="275"> 
+					<a class="btn btn-success" (click)="edit(user.userId)">Edit</a>
+					<a class="btn btn-danger" (click)="delete(user.userId)">Delete</a>
+				</td>
+			 </tr>
+		  </tbody>
+		</table>
+</div>

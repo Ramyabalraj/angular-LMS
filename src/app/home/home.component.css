@@ -1,0 +1,9 @@
+h1 {
+   display: flex;
+   font-size: 48px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display:inline-block;
+  margin: 40px 8px 10px 8px; 
+ color: #56baed;
+}
