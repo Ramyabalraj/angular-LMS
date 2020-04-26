@@ -1,8 +1,12 @@
-<div class="card" style="width: 18rem;">
+<div class="row">
+    <div  class="col-md-4 col-sm-6 col-12" *ngFor="let resource of resources" >
+<div class="card" style="width: 18rem;" >
   <img class="card-img-top" src="..." alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Angular</h5>
+    <h5 class="card-title">{{resource.resTech}}</h5>
    
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#" class="btn btn-primary">{{resource.resType}}</a>
   </div>
+</div>
+</div>
 </div>

@@ -14,10 +14,11 @@ import { CreateUserService } from './createuser/createuser-service.service';
 import { HomeComponent } from './home/home.component';
 import { RegisteruserComponent } from './registeruser/registeruser.component';
 import { ResourcesComponent } from './resources/resources.component';
+import { ResourcesService } from './resources/resources.service';
 @NgModule({
   imports:      [ BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule , HttpClientModule , RouterModule],
   declarations: [ AppComponent, HelloComponent, LoginComponent, CreateuserComponent, HomeComponent, RegisteruserComponent, ResourcesComponent],
-  providers:    [LoginService,CreateUserService],
+  providers:    [LoginService,CreateUserService, ResourcesService],
   bootstrap:    [  AppComponent ]
 })
 export class AppModule { }
