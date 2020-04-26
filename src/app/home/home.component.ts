@@ -19,8 +19,10 @@ user:any;
     this.getUserResources();
   }
 getUserResources(){
- this.user =JSON.parse(sessionStorage.getItem('user')) ;
+ this.user =(sessionStorage.getItem('user')) ;
+
 this.userId=this.user.userId;
+ alert(this.this.userId);
   this.createUserService.getUser(this.userId).subscribe((data: any[])=>{
       console.log(data);
       this.users = (data);
