@@ -11,15 +11,19 @@ export class HomeComponent implements OnInit {
 
  model = new Users();
 users =[];
+userId:number;
+user:any;
  constructor(private createUserService:CreateUserService , private router : Router) { }
 
   ngOnInit() {
     this.getUserResources();
   }
 getUserResources(){
-  this.createUserService.sendGetRequest().subscribe((data: any[])=>{
+ this.user =JSON.parse(sessionStorage.getItem('user')) ;
+this.userId=this.user.userId;
+  this.createUserService.getUser(this.userId).subscribe((data: any[])=>{
       console.log(data);
-      this.users = data;
+      this.users = (data);
      
     })  
 }

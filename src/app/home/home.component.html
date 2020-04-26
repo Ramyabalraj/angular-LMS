@@ -10,7 +10,7 @@
 		<span class="sr-only">(current)</span></a>
 	<a [routerLink]="'/register'" routerLinkActive="active" class="link" href="#">Item4
 		<span class="sr-only">(current)</span></a>
-	<a [routerLink]="'/register'" routerLinkActive="active" class="link" href="#">Disabled</a>
+
 
 	<form class="form-inline my-2 my-lg-0">
 		<input class="form-control mr-sm-2" type="search" placeholder="Search">
@@ -28,9 +28,9 @@
 <div align="center">
   <h4>Welcome To upgrade yourself!!!</h4>
   </div>
-<div *ngFor="let user of users">
+
 	<div class="row">
-		<div class="col-4" *ngFor="let resource of user.resources ">
+		<div class="col-4" *ngFor="let resource of resources ">
 			<div class="card" style="width: 18rem; ">
 			
 				<div class="card-body">
@@ -45,4 +45,3 @@
 
 		</div>
 	</div>
-</div>
