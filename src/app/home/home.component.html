@@ -28,9 +28,9 @@
 <div align="center">
   <h4>Welcome To upgrade yourself!!!</h4>
   </div>
-
+<div *ngFor="let user of users " >
 	<div class="row">
-		<div class="col-4" *ngFor="let resource of resources ">
+		<div class="col-4" *ngFor="let resource of user.resources ">
 			<div class="card" style="width: 18rem; ">
 			
 				<div class="card-body">

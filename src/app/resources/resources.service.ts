@@ -7,14 +7,14 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class ResourcesService {
 
-  private url = "http://localhost:8080/api/resources/getresources/";
+ 
 
   constructor(private httpClient: HttpClient) { }
   public resources(){
-    return this.httpClient.get(this.url);
+    return this.httpClient.get("https://userspringboot.herokuapp.com/api/resources/getresources/");
   }
   public sendGetRequest(){
-    return this.httpClient.get("http://localhost:8080/api/resources/");
+    return this.httpClient.get("https://userspringboot.herokuapp.com/api/resources/");
   }
   
  

@@ -12,7 +12,7 @@ export class CreateUserService {
   constructor(private httpClient: HttpClient) { }
  
   public sendGetRequest(){
-    return this.httpClient.get("http://localhost:8080/api/users/");
+    return this.httpClient.get(this.url);
   }
 
  public  createUser(user) {
@@ -24,7 +24,7 @@ export class CreateUserService {
 })
   }
  public getUser(id) {
-    return this.httpClient.get("http://localhost:8080/api/users/" + id);
+    return this.httpClient.get(this.url + id);
   }
   public deleteUser(id) {
     return this.httpClient.delete(this.url + id);

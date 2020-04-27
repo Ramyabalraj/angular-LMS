@@ -26,7 +26,7 @@ login(){
       alert("Invalid!!!");
       }
       else{
-        sessionStorage.setItem('user', JSON.stringify(this.users));
+        sessionStorage.setItem('user',(this.users.userId));
  this.router.navigateByUrl("home");
       }
       

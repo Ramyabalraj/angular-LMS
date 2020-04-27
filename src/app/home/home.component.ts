@@ -9,10 +9,10 @@ import { CreateUserService } from '../createuser/createuser-service.service';
 })
 export class HomeComponent implements OnInit {
 
- model = new Users();
+model = new Users();
 users =[];
 userId:number;
-user:[];
+user:number;
  constructor(private createUserService:CreateUserService , private router : Router) { }
 
   ngOnInit() {
@@ -20,12 +20,12 @@ user:[];
   }
 getUserResources(){
  this.user =(sessionStorage.getItem('user')) ;
-console.log("ahvhev"+this.user.userId);
-this.userId=this.user.userId;
+console.log("ahvhev"+this.user);
+//this.userId=this.user.userId;
 
-  this.createUserService.getUser(this.userId).subscribe((data: any[])=>{
+  this.createUserService.getUser(this.user).subscribe((data: any[])=>{
       console.log(data);
-      this.users = (data);
+      this.users.push(data);
      
     })  
 }

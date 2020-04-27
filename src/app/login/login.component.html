@@ -1,34 +1,34 @@
-
-
 <div align="center">
-<h2> Learning Management System!!!</h2>
+	<h2> Learning Management System!!!</h2>
 </div>
 <div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
+	<div id="formContent">
+		<!-- Tabs Titles -->
 
-    <!-- Icon -->
-    <div >
-   <h4>  Login </h4>
-    </div>
+		<!-- Icon -->
+		<div>
+			<h4> Login </h4>
+		</div>
 
-    <!-- Login Form -->
-    <form  #myForm="ngForm" class="form-horizontal" (submit)="login()">
-      <div class="field input-field">
-      <input type="email" id="userEmail" class="fadeIn third" name="userEmail" placeholder=" Your Email" [(ngModel)]="model.userEmail" required>
+		<!-- Login Form -->
+		<form #myForm="ngForm" class="form-horizontal" (submit)="login()">
+			<div class="field input-field">
+				<input type="email" id="userEmail" class="fadeIn third" name="userEmail" placeholder=" Your Email" [(ngModel)]="model.userEmail" required>
      </div>
-       <input type="password" id="userPassword" class="fadeIn second" name="userPassword" placeholder="Your Password" 
+				<input type="password" id="userPassword" class="fadeIn second" name="userPassword" placeholder="Your Password"
        [(ngModel)]="model.userPassword" required>
-      <button type="submit" class="fadeIn fourth" value="Log In" [disabled]="!model.userEmail||!model.userPassword">Log In</button>
-    </form>
+				<button type="submit" class="fadeIn fourth" value="Log In" [disabled]="!model.userEmail||!model.userPassword">Log In</button>
+		</form>
 
-    <!-- New User -->
-    <div id="formFooter">
-      <!-- <button type="button" (click)="register()"><h4>New User?</h4></button> -->
-      
-    <a [routerLink]="'/register'" routerLinkActive="active"> <h4>New User?</h4> </a>
- 
-    </div>
+		<!-- New User -->
+		<div id="formFooter">
+			<!-- <button type="button" (click)="register()"><h4>New User?</h4></button> -->
 
-  </div>
+			<a [routerLink]="'/register'" routerLinkActive="active">
+				<h4>New User?</h4>
+			</a>
+
+		</div>
+
+	</div>
 </div>
