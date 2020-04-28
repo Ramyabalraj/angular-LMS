@@ -16,6 +16,7 @@ ngOnInit() {
  
   
   get(){
+   
       this.resourcesService.sendGetRequest().subscribe((data: any[])=>{
       console.log(data);
       this.resources = data;

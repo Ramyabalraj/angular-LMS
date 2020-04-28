@@ -2,14 +2,14 @@
 	<a class="navbar-brand" href="#">
 		LMS
 	</a>
-	<a [routerLink]="'/register'" routerLinkActive="active" class="link" href="#">Item1
+	<a [routerLink]="'/resources'" routerLinkActive="active" class="link" href="#">Resources
 		<span class="sr-only">(current)</span></a>
-	<a [routerLink]="'/register'" routerLinkActive="active" class="link" href="#">Item2
+	<!-- <a [routerLink]="'/register'" routerLinkActive="active" class="link" href="#">Item2
 		<span class="sr-only">(current)</span></a>
 	<a [routerLink]="'/register'" routerLinkActive="active" class="link" href="#">Item3
 		<span class="sr-only">(current)</span></a>
 	<a [routerLink]="'/register'" routerLinkActive="active" class="link" href="#">Item4
-		<span class="sr-only">(current)</span></a>
+		<span class="sr-only">(current)</span></a> -->
 
 
 	<form class="form-inline my-2 my-lg-0">
@@ -26,20 +26,20 @@
 
 
 <div align="center">
-  <h4>Welcome To upgrade yourself!!!</h4>
-  </div>
-<div *ngFor="let user of users " >
+	<h4>Welcome  upgrade yourself!!!</h4>
+</div>
+<div *ngFor="let user of users ">
 	<div class="row">
 		<div class="col-4" *ngFor="let resource of user.resources ">
-			<div class="card" style="width: 18rem; ">
-			
+			<div class="card" style="width: 18rem;background: pink ">
+
 				<div class="card-body">
 					<h5 class="card-title">{{resource.resTech}}</h5>
-          	<h6 class="card-title">{{resource.resName}}</h6>
+					<h6 class="card-title">{{resource.resName}}</h6>
 					<a href="#" class="btn btn-primary">{{resource.resType}}</a>
-          <br>
-          <br>
-          	<a href="#" class="btn btn-primary">{{resource.resUrl}}</a>
+					<br>
+					<br>
+					<a href="#" class="btn btn-primary">{{resource.resUrl}}</a>
 				</div>
 			</div>
 

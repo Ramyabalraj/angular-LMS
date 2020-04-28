@@ -11,9 +11,10 @@ export class ResourcesService {
 
   constructor(private httpClient: HttpClient) { }
   public resources(){
-    return this.httpClient.get("https://userspringboot.herokuapp.com/api/resources/getresources/");
+    return this.httpClient.post("https://userspringboot.herokuapp.com/api/resources/getresources/",null);
   }
   public sendGetRequest(){
+   
     return this.httpClient.get("https://userspringboot.herokuapp.com/api/resources/");
   }
   
