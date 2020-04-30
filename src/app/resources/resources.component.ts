@@ -7,31 +7,49 @@ import { ResourcesService } from "./resources.service";
 })
 export class ResourcesComponent implements OnInit {
   resources: [];
-  res: [];
+  res: number[] = [];
   isChecked: boolean = false;
   resName: string;
   user: any;
+  toBeAdded: number;
   constructor(private resourcesService: ResourcesService) {}
 
   ngOnInit() {
     this.get();
   }
 
-  add($event) {
+  // add($event){
+  //    if ($event.target.checked == true) {
+
+  //      this.sample.push($event.target.value);
+  //   console.log(this.sample);
+  //    }
+  // }
+  checked($event) {
     if ($event.target.checked == true) {
       this.resources.forEach(x => {
         if ($event.target.value == x.resName) {
           console.log("success" + x.resId + "" + x.resName);
-          //this.user =(sessionStorage.getItem('user')) ;
-          this.res = x;
-          this.resourcesService
-            .create(2, this.res.resId)
-            .subscribe((data: any[]) => {
-              console.log("data" + data);
-            });
+          this.res.push(x.resId);
+          console.log(this.res);
+          this.toBeAdded = this.res.length;
         }
       });
     }
+    else{
+       this.res = [];
+    this.toBeAdded = this.res.length;
+  
+    }
+  }
+  add() {
+    //this.user =(sessionStorage.getItem('user')) ;
+    this.resourcesService.create(1, this.res).subscribe((data: any[]) => {
+    //  console.log("data" + data);
+    });
+    this.res = [];
+    this.toBeAdded = this.res.length;
+    console.log("this.res.length:" + this.res.length);
   }
   get() {
     this.resourcesService.sendGetRequest().subscribe((data: any[]) => {

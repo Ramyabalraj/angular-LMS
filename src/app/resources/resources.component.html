@@ -1,6 +1,13 @@
+
 <div align="center">
 	<h2> Learning Management System!!!</h2>
 </div>
+<div align="right" >
+<button type="button" class="btn btn-primary" (click)="add()">
+  NewResources <span class="badge badge-light">{{toBeAdded}}</span>
+</button>
+</div>
+
 <!-- <div class="row">
     <div  class="col-md-4 col-sm-6 col-12" *ngFor="let resource of resources" >
 <div class="card" style="width: 18rem;" >
@@ -29,7 +36,7 @@
   </div>
   
   <div class="card-body">
-   <input type="checkbox"  value="Java 1" (change)="add($event)" >
+   <input type="checkbox"  value="Java 1" (change)="checked($event)" >
     
   </div>
 </div>
@@ -47,7 +54,7 @@
     <!-- <a href="#" class="card-link">Card link</a>
     <a href="#" class="card-link">Another link</a> -->
      <div class="card-body">
-   <input type="checkbox"  value="Java Script 1" (change)="add($event)" >
+   <input type="checkbox" style="background:green"  value="Java Script 1" (change)="checked($event)" >
  
   </div>
 </div>
@@ -61,8 +68,8 @@
     <p class="card-text">Latest Angular Features</p>
   </div>
   
-  <div class="card-body">
-   <input type="checkbox"  value="Angular 1" (change)="add($event)" >
+  <div class="card-body" >
+   <input type="checkbox" style="color:green;" value="Angular 1" (change)="checked($event)" >
     
   </div>
   </div>
@@ -79,7 +86,7 @@
   </div>
   
   <div class="card-body">
-   <input type="checkbox"  value="Spring Boot 1" (change)="add($event)" >
+   <input type="checkbox"  value="Spring Boot 1" (change)="checked($event)" >
   </div>
   </div>
 </div>
