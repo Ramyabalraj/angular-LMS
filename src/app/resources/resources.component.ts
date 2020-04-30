@@ -8,7 +8,8 @@ import { ResourcesService } from "./resources.service";
 export class ResourcesComponent implements OnInit {
   resources: [];
   res: number[] = [];
-  isChecked: boolean = false;
+  //isChecked: boolean;
+  //toggle: boolean;
   resName: string;
   user: any;
   toBeAdded: number;
@@ -27,6 +28,7 @@ export class ResourcesComponent implements OnInit {
   // }
   checked($event) {
     if ($event.target.checked == true) {
+     //  this.isChecked = !this.isChecked;
       this.resources.forEach(x => {
         if ($event.target.value == x.resName) {
           console.log("success" + x.resId + "" + x.resName);
