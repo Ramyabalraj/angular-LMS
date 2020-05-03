@@ -14,7 +14,7 @@ export class ResourcesService {
     );
   }
   public sendGetRequest() {
-    return this.httpClient.get("http://localhost:8080/api/resources/");
+    return this.httpClient.get("https://userspringboot.herokuapp.com/api/resources/");
   }
   public create(userId, resId) {
     //let ressId = [1, 2, 3];
@@ -23,7 +23,7 @@ export class ResourcesService {
     param = param.append("userId", userId);
     param = param.append("resId[]", resId);
     return this.httpClient.get(
-      "http://localhost:8080/api/userresources/{userId}/{resId}/",
+      "https://userspringboot.herokuapp.com/api/userresources/{userId}/{resId}/",
       { params: param }
     );
   }

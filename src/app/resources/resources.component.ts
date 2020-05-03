@@ -45,8 +45,8 @@ export class ResourcesComponent implements OnInit {
     }
   }
   add() {
-    //this.user =(sessionStorage.getItem('user')) ;
-    this.resourcesService.create(1, this.res).subscribe((data: any[]) => {
+    this.user =(sessionStorage.getItem('user')) ;
+    this.resourcesService.create(this., this.res).subscribe((data: any[]) => {
     //  console.log("data" + data);
     });
     this.res = [];
