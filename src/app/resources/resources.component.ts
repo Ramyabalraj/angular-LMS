@@ -60,6 +60,7 @@ export class ResourcesComponent implements OnInit {
       .subscribe((data: any[]) => {
         //  console.log("data" + data);
       });
+    alert("Resources Added!!!");
     this.res = [];
     this.toBeAdded = this.res.length;
     console.log("this.res.length:" + this.res.length);
