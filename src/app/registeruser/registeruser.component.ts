@@ -25,6 +25,7 @@ register(){
       this.createUserService.createUser(this.model).subscribe((data: any[])=>{
       console.log(data);
       this.users = data;
+      
       if(!this.users){
       alert("Invalid!!!");
       }
