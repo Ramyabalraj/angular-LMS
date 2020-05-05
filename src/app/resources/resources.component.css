@@ -9,3 +9,12 @@ h2 {
   margin: 40px 8px 10px 8px; 
  color: #56baed;
 }
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}

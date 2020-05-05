@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ResourcesService } from "./resources.service";
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import { MatAutocompleteSelectedEvent } from '@angular/material';
+import {map, startWith} from 'rxjs/operators';
 @Component({
   selector: "app-resources",
   templateUrl: "./resources.component.html",
@@ -8,17 +12,19 @@ import { ResourcesService } from "./resources.service";
 export class ResourcesComponent implements OnInit {
   resources: [];
   res: number[] = [];
-  //isChecked: boolean;
-  //toggle: boolean;
   resName: string;
   user: any;
   toBeAdded: number;
+   myControl = new FormControl();
+  options: string[] = ['Delhi', 'Mumbai', 'Banglore'];
+
   constructor(private resourcesService: ResourcesService) {}
 
   ngOnInit() {
     this.get();
+    
   }
-
+ 
   // add($event){
   //    if ($event.target.checked == true) {
 
@@ -68,7 +74,10 @@ export class ResourcesComponent implements OnInit {
   get() {
     this.resourcesService.sendGetRequest().subscribe((data: any[]) => {
       console.log(data);
-      this.resources = data;
+      this.resources =(data) ;
     });
+  }
+  search(event: MatAutocompleteSelectedEvent) {
+alert(event.option.value);
   }
 }

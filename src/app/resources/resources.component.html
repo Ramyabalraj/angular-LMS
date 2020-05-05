@@ -1,10 +1,9 @@
-
 <div align="center">
 	<h2> Learning Management System!!!</h2>
 </div>
-
-<div align="right" >
-<button type="button" class="btn btn-primary" (click)="add()">
+       
+<div align="right">
+	<button type="button" class="btn btn-primary" (click)="add()">
   NewResources <span class="badge badge-light">{{toBeAdded}}</span>
 </button>
 </div>
@@ -23,70 +22,89 @@
 				</div>
        
 </div>
+
  
 </div>
 </div> -->
-<div class="row" style=" padding: 70px;">
-  <div class="col-4" >
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Java 1</h5>
-     <h6 class="card-title">Java </h6>
-    <p class="card-text">Latest Java Features</p>
+
+ <div class="row" style=" padding: 70px;">
+	<div class="col-4">
+		<div class="card" style="width: 18rem;">
+			<img class="card-img-top" src="..." alt="Card image cap">
+			<div class="card-body">
+				<h5 class="card-title">Java 1</h5>
+				<h6 class="card-title">Java </h6>
+				<p class="card-text">Latest Java Features</p>
+			</div>
+
+			<div class="card-body">
+				<input type="checkbox"  value="Java 1" (change)="checked($event)" >
+
   </div>
-  
-  <div class="card-body">
-   <input type="checkbox"  value="Java 1" (change)="checked($event)" >
-    
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" src="..." alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">Java Script 1</h5>
+					<h6 class="card-title">Java Script </h6>
+					<p class="card-text">Latest Java Script Features</p>
+				</div>
+
+
+			 <!-- <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>  -->
+			 <div class="card-body">
+					<input type="checkbox" style="background:green"  value="Java Script 1" (change)="checked($event)" >
+
   </div>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" src="..." alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Angular 1</h5>
+						<h6 class="card-title">Angular </h6>
+						<p class="card-text">Latest Angular Features</p>
+					</div>
+					<div>
+						<input type="checkbox"  value="Angular 1" (change)="checked($event)" >
 </div>
-</div>
- <div class="col-4">
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Java Script 1</h5>
-     <h6 class="card-title">Java Script </h6>
-    <p class="card-text">Latest Java Script Features</p>
+					</div>
+				</div>
+			</div>
+			<div class="row" style=" padding: 70px;">
+				<div class="col-4">
+					<div class="card" style="width: 18rem;">
+						<img class="card-img-top" src="..." alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title">Spring Boot 1</h5>
+							<h6 class="card-title">Spring Boot </h6>
+							<p class="card-text">Latest Spring Boot Features</p>
+						</div>
+
+						<div class="card-body">
+							<input type="checkbox"  value="Spring Boot 1" (change)="checked($event)" >
   </div>
-  
-  
-    <!-- <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a> -->
-     <div class="card-body">
-   <input type="checkbox" style="background:green"  value="Java Script 1" (change)="checked($event)" >
- 
-  </div>
-</div>
-</div>
- <div class="col-4">
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Angular 1</h5>
-     <h6 class="card-title">Angular </h6>
-    <p class="card-text">Latest Angular Features</p>
-  </div>
-  <div >
-   <input type="checkbox"  value="Angular 1" (change)="checked($event)" >
-</div>
-  </div>
-</div>
-</div>
-<div class="row" style=" padding: 70px;">
-<div class="col-4">
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Spring Boot 1</h5>
-     <h6 class="card-title">Spring Boot </h6>
-    <p class="card-text">Latest Spring Boot Features</p>
-  </div>
-  
-  <div class="card-body">
-   <input type="checkbox"  value="Spring Boot 1" (change)="checked($event)" >
-  </div>
-  </div>
-</div>
-</div>
+						</div>
+					</div>
+				</div> 
+ <form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto" >
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="search($event)">
+  <!-- <div *ngFor="let l of resources"> -->
+      <mat-option *ngFor="let l of resources" [value]="l.level.levelName">
+        {{l.level.levelName}}
+      </mat-option>
+  <!-- </div> -->
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
