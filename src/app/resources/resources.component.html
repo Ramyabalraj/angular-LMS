@@ -1,33 +1,35 @@
 <div align="center">
 	<h2> Learning Management System!!!</h2>
 </div>
-       
+
 <div align="right">
 	<button type="button" class="btn btn-primary" (click)="add()">
   NewResources <span class="badge badge-light">{{toBeAdded}}</span>
 </button>
 </div>
 
-<!-- <div class="row">
-    <div  class="col-md-4 col-sm-6 col-12" *ngFor="let resource of resources" >
-<div class="card" style="width: 18rem;" >
- 
-  	<div class="card-body">
-					<h5 class="card-title">{{resource.resTech}}</h5>
-					<h6 class="card-title">{{resource.resName}}</h6>
-					<a href="#" class="btn btn-primary">{{resource.resType}}</a>
-					<br>
-					<br>
-					<a href="#" class="btn btn-primary">{{resource.resUrl}}</a>
+<div class="row">
+	<div class="col-md-4 col-sm-6 col-12" *ngFor="let resource of resources">
+		<div class="card" style="width: 18rem;">
+
+			<div class="card-body">
+				<h5 class="card-title">{{resource.resTech}}</h5>
+				<h6 class="card-title">{{resource.resName}}</h6>
+				<a href="#" class="btn btn-primary">{{resource.resType}}</a>
+				<br>
+				<br>
+				<a href="#" class="btn btn-primary">{{resource.resUrl}}</a>
+				<br>
+				<input type="checkbox"  value="Java 1" (change)="checked($event)" >
 				</div>
-       
-</div>
 
- 
-</div>
-</div> -->
+			</div>
 
- <div class="row" style=" padding: 70px;">
+
+		</div>
+	</div>
+
+	<!-- <div class="row" style=" padding: 70px;">
 	<div class="col-4">
 		<div class="card" style="width: 18rem;">
 			<img class="card-img-top" src="..." alt="Card image cap">
@@ -55,7 +57,7 @@
 
 			 <!-- <a href="#" class="card-link">Card link</a>
     <a href="#" class="card-link">Another link</a>  -->
-			 <div class="card-body">
+	<!-- <div class="card-body">
 					<input type="checkbox" style="background:green"  value="Java Script 1" (change)="checked($event)" >
 
   </div>
@@ -71,8 +73,8 @@
 					</div>
 					<div>
 						<input type="checkbox"  value="Angular 1" (change)="checked($event)" >
-</div>
-					</div>
+</div> -->
+	<!-- </div>
 				</div>
 			</div>
 			<div class="row" style=" padding: 70px;">
@@ -90,41 +92,34 @@
   </div>
 						</div>
 					</div>
-				</div> 
- <form class="example-form">
-  <mat-form-field class="example-full-width">
-    
-   <input type="text"
+				</div>  -->
+	<form class="example-form">
+		<mat-form-field class="example-full-width">
+
+			<input type="text"
            placeholder="Pick one"
            aria-label="Number"
            matInput
            [formControl]="myControl"
            [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-autocomplete>
-  <!-- <div *ngFor="let l of resources"> -->
-      <!-- <mat-option  *ngFor="let option of filteredOptions | async" [value]="option"  >
+			<mat-autocomplete #auto="matAutocomplete" (optionSelected)='search($event)'>
+				<mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+					{{option}}
+				</mat-option>
+      	<mat-option  [value]=default>
+					All
+				</mat-option>
+			</mat-autocomplete>
+			<!-- <div *ngFor="let l of resources"> -->
+			<!-- <mat-option  *ngFor="let option of filteredOptions | async" [value]="option"  >
         <!-- {{l.level.levelName}} -->
-        <!-- {{option}}
+			<!-- {{option}}
       </mat-option> -->
-  <!-- </div> -->
-    <!-- </mat-autocomplete> --> -->
-    
-     </mat-form-field>
-  <mat-slide-toggle
-          class="example-margin"
-          [color]="pink"
-        (change)="select($Event)"
-          [disabled]="disabled" >
-        Slide me!
-      </mat-slide-toggle>
+			<!-- </div> -->
+			<!-- </mat-autocomplete> -->
 
-   
-
-  
-   
-
-</form>
+		</mat-form-field>
+		<mat-slide-toggle class="example-margin" [color]="pink" (change)="select($Event)" [disabled]="disabled">
+			Slide me!
+		</mat-slide-toggle>
+	</form>

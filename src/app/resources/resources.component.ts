@@ -4,76 +4,93 @@ import { FormControl } from "@angular/forms";
 import { Observable } from "rxjs";
 import { MatAutocompleteSelectedEvent } from "@angular/material";
 
-import { map,filter, startWith } from "rxjs/operators";
+import { map, filter, startWith } from "rxjs/operators";
 @Component({
   selector: "app-resources",
   templateUrl: "./resources.component.html",
   styleUrls: ["./resources.component.css"]
 })
 export class ResourcesComponent implements OnInit {
-  resources: [];
-  level:[]=[];
+  resources: [] = [];
+  viewresources: [] = [];
+  level: [] = [];
   res: number[] = [];
-  resName: string;
+  sres: number;
   user: any;
+  default: string = "All";
   toBeAdded: number;
   myControl = new FormControl();
-   options: resources[]=[];
- filteredOptions: Observable<resources[]>;
+  options: resources[] = [];
+  filteredOptions: Observable<resources[]>;
   constructor(private resourcesService: ResourcesService) {}
 
   ngOnInit() {
     this.get();
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-         map(value => this.filterl(value))
-      );
-    
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(""),
+      map(value => this.filterl(value))
+    );
   }
   private filterl(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    return this.options.filter(option =>
+      option.toLowerCase().includes(filterValue)
+    );
   }
 
- get() {
+  get() {
     this.resourcesService.getResources().subscribe((data: any[]) => {
       console.log(data);
       this.resources = data;
-
-       this.resources.forEach(x => {
-      this.options.push(x.resName);
-      // this.options.push(x.levelName);
-       console.log("hiii"+this.options);
-       });
-     
+      this.resources.forEach(x => {
+        this.options.push(x.resName);
+        this.viewresources.push(x);
+        console.log("hiii" + this.viewresources);
+      });
     });
     this.resourcesService.getLevel().subscribe((data: any[]) => {
       console.log(data);
       this.level = data;
-
-       this.level.forEach(x => {
-      this.options.push(x.level.levelName);
-       console.log("hiii"+this.options);
-       });
+      this.level.forEach(x => {
+        this.options.push(x.levelName);
+        console.log("hiii" + this.options);
+      });
     });
   }
-  
-  
 
-   
-  
-  
-  
-
-search(event: MatAutocompleteSelectedEvent) {
+  search(event: MatAutocompleteSelectedEvent) {
     alert(event.option.value);
+    if (event.option.value) {
+      this.resources.forEach(x => {
+        if (event.option.value == x.resName) {
+          console.log("success" + x.resId + "" + x.resName);
+          this.sres = x.resId;
+          this.resourcesService.getResId(this.sres).subscribe((data: any[]) => {
+            this.resources = [];
+            console.log("bcwh" + this.resources);
+            this.resources.push(data);
+            console.log(this.resources);
+          });
+        } else if (event.option.value == x.level.levelName) {
+          console.log("success" + x.resId + "" + x.resName);
+          this.resources = [];
+          this.sres = x.resId;
+          this.resourcesService.getResId(this.sres).subscribe((data: any[]) => {
+            console.log("bcwh" + this.resources);
+            this.resources.push(data);
+            console.log(this.resources);
+          });
+        } else if (event.option.value == "All") {
+          this.resources = [];
+          this.resources.push(this.viewresources);
+          console.log("gcxu" + this.resources);
+        }
+      });
+    }
   }
 
-
-  
-checked($event) {
+  checked($event) {
     if ($event.target.checked == true) {
       //  this.isChecked = !this.isChecked;
       this.resources.forEach(x => {
@@ -100,8 +117,7 @@ checked($event) {
       });
     }
   }
- 
- 
+
   add() {
     this.user = sessionStorage.getItem("user");
     this.resourcesService
@@ -114,6 +130,4 @@ checked($event) {
     this.toBeAdded = this.res.length;
     console.log("this.res.length:" + this.res.length);
   }
- 
-  
 }
