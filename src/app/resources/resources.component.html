@@ -93,18 +93,38 @@
 				</div> 
  <form class="example-form">
   <mat-form-field class="example-full-width">
-    <input type="text"
+    
+   <input type="text"
            placeholder="Pick one"
            aria-label="Number"
            matInput
            [formControl]="myControl"
-           [matAutocomplete]="auto" >
-    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="search($event)">
-  <!-- <div *ngFor="let l of resources"> -->
-      <mat-option *ngFor="let l of resources" [value]="l.level.levelName">
-        {{l.level.levelName}}
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
       </mat-option>
-  <!-- </div> -->
     </mat-autocomplete>
-  </mat-form-field>
+  <!-- <div *ngFor="let l of resources"> -->
+      <!-- <mat-option  *ngFor="let option of filteredOptions | async" [value]="option"  >
+        <!-- {{l.level.levelName}} -->
+        <!-- {{option}}
+      </mat-option> -->
+  <!-- </div> -->
+    <!-- </mat-autocomplete> --> -->
+    
+     </mat-form-field>
+  <mat-slide-toggle
+          class="example-margin"
+          [color]="pink"
+        (change)="select($Event)"
+          [disabled]="disabled" >
+        Slide me!
+      </mat-slide-toggle>
+
+   
+
+  
+   
+
 </form>

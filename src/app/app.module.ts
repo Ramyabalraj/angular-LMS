@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { CreateuserComponent } from './createuser/createuser.component';
 import { CreateUserService } from './createuser/createuser-service.service';
 import { HomeComponent } from './home/home.component';
@@ -25,6 +25,7 @@ import { SampleComponent } from './sample/sample.component';
 @NgModule({
   imports:      [ BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule , HttpClientModule , RouterModule , BrowserAnimationsModule,
     FormsModule,
+    MatSlideToggleModule,
  MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule  ],

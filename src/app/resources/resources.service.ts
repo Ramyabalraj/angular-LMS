@@ -13,7 +13,7 @@ export class ResourcesService {
       null
     );
   }
-  public sendGetRequest() {
+  public getResources() {
     return this.httpClient.get("https://userspringboot.herokuapp.com/api/resources/");
   }
   public create(userId, resId) {
@@ -26,5 +26,8 @@ export class ResourcesService {
       "https://userspringboot.herokuapp.com/api/userresources/{userId}/{resId}/",
       { params: param }
     );
+  }
+  public getLevel(){
+     return this.httpClient.get("https://userspringboot.herokuapp.com/api/level/");
   }
 }

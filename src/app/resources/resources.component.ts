@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { ResourcesService } from "./resources.service";
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import { MatAutocompleteSelectedEvent } from '@angular/material';
-import {map, startWith} from 'rxjs/operators';
+import { FormControl } from "@angular/forms";
+import { Observable } from "rxjs";
+import { MatAutocompleteSelectedEvent } from "@angular/material";
+
+import { map,filter, startWith } from "rxjs/operators";
 @Component({
   selector: "app-resources",
   templateUrl: "./resources.component.html",
@@ -11,28 +12,68 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class ResourcesComponent implements OnInit {
   resources: [];
+  level:[]=[];
   res: number[] = [];
   resName: string;
   user: any;
   toBeAdded: number;
-   myControl = new FormControl();
-  options: string[] = ['Delhi', 'Mumbai', 'Banglore'];
-
+  myControl = new FormControl();
+   options: resources[]=[];
+ filteredOptions: Observable<resources[]>;
   constructor(private resourcesService: ResourcesService) {}
 
   ngOnInit() {
     this.get();
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+         map(value => this.filterl(value))
+      );
     
   }
- 
-  // add($event){
-  //    if ($event.target.checked == true) {
+  private filterl(value: string): string[] {
+    const filterValue = value.toLowerCase();
 
-  //      this.sample.push($event.target.value);
-  //   console.log(this.sample);
-  //    }
-  // }
-  checked($event) {
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+ get() {
+    this.resourcesService.getResources().subscribe((data: any[]) => {
+      console.log(data);
+      this.resources = data;
+
+       this.resources.forEach(x => {
+      this.options.push(x.resName);
+      // this.options.push(x.levelName);
+       console.log("hiii"+this.options);
+       });
+     
+    });
+    this.resourcesService.getLevel().subscribe((data: any[]) => {
+      console.log(data);
+      this.level = data;
+
+       this.level.forEach(x => {
+      this.options.push(x.level.levelName);
+       console.log("hiii"+this.options);
+       });
+    });
+  }
+  
+  
+
+   
+  
+  
+  
+
+search(event: MatAutocompleteSelectedEvent) {
+    alert(event.option.value);
+  }
+
+
+  
+checked($event) {
     if ($event.target.checked == true) {
       //  this.isChecked = !this.isChecked;
       this.resources.forEach(x => {
@@ -59,6 +100,8 @@ export class ResourcesComponent implements OnInit {
       });
     }
   }
+ 
+ 
   add() {
     this.user = sessionStorage.getItem("user");
     this.resourcesService
@@ -71,13 +114,6 @@ export class ResourcesComponent implements OnInit {
     this.toBeAdded = this.res.length;
     console.log("this.res.length:" + this.res.length);
   }
-  get() {
-    this.resourcesService.sendGetRequest().subscribe((data: any[]) => {
-      console.log(data);
-      this.resources =(data) ;
-    });
-  }
-  search(event: MatAutocompleteSelectedEvent) {
-alert(event.option.value);
-  }
+ 
+  
 }
