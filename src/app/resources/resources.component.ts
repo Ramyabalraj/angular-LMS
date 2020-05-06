@@ -83,8 +83,10 @@ export class ResourcesComponent implements OnInit {
           });
         } else if (event.option.value == "All") {
           this.resources = [];
-          this.resources.push(this.viewresources);
-          console.log("gcxu" + this.resources);
+          this.viewresources.forEach(x => {
+            this.resources.push(x);
+            console.log("gcxu" + this.resources);
+          });
         }
       });
     }
