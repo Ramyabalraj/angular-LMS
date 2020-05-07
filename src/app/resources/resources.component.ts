@@ -46,7 +46,7 @@ export class ResourcesComponent implements OnInit {
       this.resources.forEach(x => {
         this.options.push(x.resName);
         this.viewresources.push(x);
-        console.log("hiii" + this.viewresources);
+       
       });
     });
     this.resourcesService.getLevel().subscribe((data: any[]) => {
@@ -54,7 +54,7 @@ export class ResourcesComponent implements OnInit {
       this.level = data;
       this.level.forEach(x => {
         this.options.push(x.levelName);
-        console.log("hiii" + this.options);
+       
       });
     });
   }
@@ -62,19 +62,19 @@ export class ResourcesComponent implements OnInit {
   search(event: MatAutocompleteSelectedEvent) {
     alert(event.option.value);
     if (event.option.value) {
-      console.log("b a" + JSON.stringify(this.resources));
+     
       this.viewresources.forEach(x => {
         if (event.option.value == x.resName) {
           console.log("success" + x.resId + "" + x.resName);
           this.sres = x.resId;
           this.resourcesService.getResId(this.sres).subscribe((data: any[]) => {
             this.resources = [];
-            console.log("bcwh" + this.resources);
+            
             this.resources.push(data);
-            console.log("a a" + JSON.stringify(this.resources));
+          
           });
         } else if (event.option.value == x.level.levelName) {
-          console.log("success" + x.resId + "" + x.resName);
+        
           this.resources = [];
           this.sres = x.resId;
           this.resourcesService.getResId(this.sres).subscribe((data: any[]) => {
