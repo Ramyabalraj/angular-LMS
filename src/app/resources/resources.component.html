@@ -1,6 +1,3 @@
-
-
-
 <div align="center">
 	<h2> Learning Management System!!!</h2>
 </div>
@@ -9,6 +6,30 @@
 	<button type="button" class="btn btn-primary" (click)="add()">
   NewResources <span class="badge badge-light">{{toBeAdded}}</span>
 </button>
+</div>
+<div class="example-container">
+	<form class="example-form">
+		<mat-form-field class="example-full-width">
+			<h4>Auto complete:</h4>
+
+			<input type="text" class="color"
+
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+			<mat-autocomplete #auto="matAutocomplete" (optionSelected)='search($event)'>
+				<mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+					{{option}}
+				</mat-option>
+				<mat-option [value]=default>
+					All
+				</mat-option>
+			</mat-autocomplete>
+
+		</mat-form-field>
+
+	</form>
 </div>
 
 <div class="row">
@@ -31,25 +52,3 @@
 
 		</div>
 	</div>
-
-	<form class="example-form">
-		<mat-form-field class="example-full-width">
-<h2>Auto complete:</h2>
-			<input type="text" class="color"
-          
-           aria-label="Number"
-           matInput
-           [formControl]="myControl"
-           [matAutocomplete]="auto">
-			<mat-autocomplete #auto="matAutocomplete" (optionSelected)='search($event)'>
-				<mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-					{{option}}
-				</mat-option>
-      	<mat-option  [value]=default>
-					All
-				</mat-option>
-			</mat-autocomplete>
-			
-		</mat-form-field>
-	
-	</form>

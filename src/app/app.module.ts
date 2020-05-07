@@ -10,11 +10,14 @@ import { LoginService } from './login/login-service.service';
 import { LoginComponent } from './login/login.component';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- 
+ import {MatCardModule} from '@angular/material/card';
+ import {MatIconModule} from '@angular/material/icon';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import { CreateuserComponent } from './createuser/createuser.component';
 import { CreateUserService } from './createuser/createuser-service.service';
 import { HomeComponent } from './home/home.component';
@@ -23,8 +26,9 @@ import { ResourcesComponent } from './resources/resources.component';
 import { ResourcesService } from './resources/resources.service';
 import { SampleComponent } from './sample/sample.component';
 @NgModule({
-  imports:      [ BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule , HttpClientModule , RouterModule , BrowserAnimationsModule,
+  imports:      [ BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule , HttpClientModule , RouterModule , BrowserAnimationsModule,MatToolbarModule,MatIconModule,MatButtonModule,
     FormsModule,
+    MatCardModule,
     MatSlideToggleModule,
  MatAutocompleteModule,
     MatFormFieldModule,
