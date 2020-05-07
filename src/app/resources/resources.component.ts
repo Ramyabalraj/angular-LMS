@@ -62,7 +62,8 @@ export class ResourcesComponent implements OnInit {
   search(event: MatAutocompleteSelectedEvent) {
     alert(event.option.value);
     if (event.option.value) {
-      this.resources.forEach(x => {
+      console.log("b a" + JSON.stringify(this.resources));
+      this.viewresources.forEach(x => {
         if (event.option.value == x.resName) {
           console.log("success" + x.resId + "" + x.resName);
           this.sres = x.resId;
@@ -70,7 +71,7 @@ export class ResourcesComponent implements OnInit {
             this.resources = [];
             console.log("bcwh" + this.resources);
             this.resources.push(data);
-            console.log(this.resources);
+            console.log("a a" + JSON.stringify(this.resources));
           });
         } else if (event.option.value == x.level.levelName) {
           console.log("success" + x.resId + "" + x.resName);
@@ -94,8 +95,9 @@ export class ResourcesComponent implements OnInit {
 
   checked($event) {
     if ($event.target.checked == true) {
+      alert("checked" + $event.target.value);
       //  this.isChecked = !this.isChecked;
-      this.resources.forEach(x => {
+      this.viewresources.forEach(x => {
         if ($event.target.value == x.resName) {
           console.log("success" + x.resId + "" + x.resName);
           this.res.push(x.resId);
@@ -105,7 +107,7 @@ export class ResourcesComponent implements OnInit {
       });
     } else {
       //this.res = [];
-      this.resources.forEach(x => {
+      this.viewresources.forEach(x => {
         if ($event.target.value == x.resName) {
           console.log("success" + x.resId + "" + x.resName);
           for (var i = 0; i < this.res.length; i++) {
