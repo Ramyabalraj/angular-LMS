@@ -17,6 +17,7 @@ export class ResourcesComponent implements OnInit {
   res: number[] = [];
   sres: number;
   user: any;
+  rName:String;
   default: string = "All";
   toBeAdded: number;
   myControl = new FormControl();
@@ -94,8 +95,9 @@ export class ResourcesComponent implements OnInit {
   }
 
   checked($event) {
+     alert("checked" + $event.target.value);
     if ($event.target.checked == true) {
-      alert("checked" + $event.target.value);
+     
       //  this.isChecked = !this.isChecked;
       this.viewresources.forEach(x => {
         if ($event.target.value == x.resName) {

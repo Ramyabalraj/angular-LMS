@@ -35,10 +35,8 @@
 <div class="row">
 	<div class="col-md-4 col-sm-6 col-12" *ngFor="let resource of resources">
 		<div class="card" style="width: 18rem;">
- <img class="card-img-top" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAADICAMAAAA9W+hXAAAAA1BMVEUwT/6u9VSbAAAANElEQVR4nO3BMQEAAADCoPVP7WsIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAN1+AABVhDU2QAAAABJRU5ErkJggg==" alt="Card image cap" >
- <div class="card-img-overlay card-inverse" align="center"> 
-                <h3 class="card-img-text" >{{resource.resName}}</h3> 
-            </div> 
+
+
 			<div class="card-body">
 				<h5 class="card-title">{{resource.resTech}}</h5>
 				<h6 class="card-title">{{resource.resName}}</h6>
@@ -47,7 +45,7 @@
 				<br>
 				<a href="#" class="btn btn-primary">{{resource.resUrl}}</a>
 				<br>
-				<input type="checkbox"  value={{resource.resName}} (change)="checked($event)" >
+				<input type="checkbox"  value="{{resource.resName}}"  (change)="checked($event)" >
 				</div>
 
 			</div>
