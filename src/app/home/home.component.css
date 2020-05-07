@@ -13,3 +13,15 @@ h4 {
 .example-spacer{
    padding: 0 14px;
 }
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+    
+}
+.card-img-text{
+   position: absolute;
+      
+      color: white;
+      font-size: 34px;
+}
