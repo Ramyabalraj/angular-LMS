@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit ,ViewChildren, QueryList, ElementRef } from "@angular/core";
 import { ResourcesService } from "./resources.service";
 import { FormControl } from "@angular/forms";
 import { Observable } from "rxjs";
@@ -11,6 +11,8 @@ import { map, filter, startWith } from "rxjs/operators";
   styleUrls: ["./resources.component.css"]
 })
 export class ResourcesComponent implements OnInit {
+  @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
+
   resources: [] = [];
   viewresources: [] = [];
   level: [] = [];
@@ -87,12 +89,20 @@ export class ResourcesComponent implements OnInit {
           this.resources = [];
           this.viewresources.forEach(x => {
             this.resources.push(x);
-            console.log("gcxu" + this.resources);
+            
           });
         }
       });
     }
   }
+
+
+uncheckAll() {
+    this.checkboxes.forEach((element) => {
+      element.nativeElement.checked = false;
+    });
+  }
+
 
   checked($event) {
      alert("checked" + $event.target.value);
@@ -130,10 +140,12 @@ export class ResourcesComponent implements OnInit {
       .create(this.user, this.res)
       .subscribe((data: any[]) => {
         //  console.log("data" + data);
+        
       });
-    alert("Resources Added!!!");
+    
     this.res = [];
     this.toBeAdded = this.res.length;
     console.log("this.res.length:" + this.res.length);
+    this.uncheckAll();
   }
 }
