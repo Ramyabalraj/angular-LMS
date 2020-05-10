@@ -13,14 +13,15 @@ export class ResourcesService {
       null
     );
   }
+  
   public getResources() {
     return this.httpClient.get("https://userspringboot.herokuapp.com/api/resources/");
   }
+  
   public create(userId, resId) {
-    //let ressId = [1, 2, 3];
+   
     let param = new HttpParams();
-
-    param = param.append("userId", userId);
+     param = param.append("userId", userId);
     param = param.append("resId[]", resId);
     return this.httpClient.get(
       "https://userspringboot.herokuapp.com/api/userresources/{userId}/{resId}/",
