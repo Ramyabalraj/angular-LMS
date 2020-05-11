@@ -1,24 +1,29 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HelloComponent } from './hello.component';
-import { LoginComponent } from './login/login.component';
-import { CreateuserComponent } from './createuser/createuser.component';
-import { HomeComponent } from './home/home.component';
-import { RegisteruserComponent } from './registeruser/registeruser.component';
- import { ResourcesComponent } from './resources/resources.component';
- import { SampleComponent } from './sample/sample.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { HelloComponent } from "./hello.component";
+import { LoginComponent } from "./login/login.component";
+import { CreateuserComponent } from "./createuser/createuser.component";
+import { HomeComponent } from "./home/home.component";
+import { RegisteruserComponent } from "./registeruser/registeruser.component";
+import { ResourcesComponent } from "./resources/resources.component";
+import { SampleComponent } from "./sample/sample.component";
+import { NavComponent } from "./nav/nav.component";
 const routes: Routes = [
-   {path: '', component: LoginComponent },
-   {path: 'view', component: CreateuserComponent },
-   {path: 'register', component:RegisteruserComponent  },
-   {path: 'home', component:HomeComponent  },
-    {path: 'resources', component:ResourcesComponent  },
-     {path: 'sample', component:SampleComponent  },
+  { path: "", component: LoginComponent },
+  {
+    path: "nav",
+    component: NavComponent,
+    children: [
+      { path: "resources", component: ResourcesComponent },
+      { path: "view", component: CreateuserComponent },
+       { path: "", component: HomeComponent },
+    ]
+  },
+  { path: "register", component: RegisteruserComponent },
+ { path: "sample", component: SampleComponent }
 ];
 @NgModule({
-    imports: [
-        RouterModule.forRoot(routes,{ enableTracing: false })
-    ],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { enableTracing: false })],
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -29,4 +29,10 @@ console.log("ahvhev"+this.user);
      
     })  
 }
+getRes(){
+ this.router.navigateByUrl("home/resources"); 
+}
+sample(){
+   this.router.navigateByUrl("sample"); 
+}
 }

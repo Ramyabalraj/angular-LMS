@@ -23,27 +23,9 @@
 
 </nav> --> 
 
-<mat-toolbar color="primary">
-    
-   
-      <span >LMS </span>
-  
-   <span class="example-spacer"></span>
-    <div fxShow="true" fxHide.gt-sm="true">
-      <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </div>
-    <span class="example-spacer"></span>
-    <div fxShow="true" fxHide.lt-md="true">
-      <a mat-button routerLink="/resources"><i className="material-icons">Resource</i></a>
-      <a mat-button routerLink="/home">Home</a>
-      <!-- <a mat-button routerLink="/start-page">Start page</a>
-      <a mat-button routerLink="/offer">Offer</a> -->
-      <a mat-button routerLink="/contact">Contact</a>
-    </div>
-  </mat-toolbar>
 
+  
+  
 <div align="center">
 	<h4>Welcome  upgrade yourself!!!</h4>
 </div>
@@ -51,13 +33,13 @@
 	<div class="row">
 		<div class="col-4" *ngFor="let resource of user.resources ">
 			<div class="card" style="width: 18rem; ">
- <img class="card-img-top" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAADICAMAAAA9W+hXAAAAA1BMVEUwT/6u9VSbAAAANElEQVR4nO3BMQEAAADCoPVP7WsIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAN1+AABVhDU2QAAAABJRU5ErkJggg==" alt="Card image cap" >
- <div class="card-img-overlay card-inverse"> 
+ <img class="card-img-top" src="{{resource.resImg}}" alt="Card image cap" >
+ <!-- <div class="card-img-overlay card-inverse"> 
                 <h3 class="card-img-text">{{resource.resName}}</h3> 
-            </div> 
-				<div class="card-body">
+            </div>   -->
+				 <div class="card-body">
 					<h5 class="card-title">{{resource.resTech}}</h5>
-					<!-- <h6 class="card-title">{{resource.resName}}</h6> -->
+					<h6 class="card-title">{{resource.resName}}</h6>
 					<a href="#" class="btn btn-primary">{{resource.resType}}</a>
 					<br>
 					<br>
@@ -66,4 +48,4 @@
 			</div>
 
 		</div>
-	</div>
+	</div> 

@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+    
+   
+      <span >LMS </span>
+  
+   <span class="spacer"></span>
+    <div fxShow="true" fxHide.gt-sm="true">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon></mat-icon>
+      </button>
+    </div>
+    <span class="spacer"></span>
+    <div fxShow="true" fxHide.lt-md="true">
+      <button mat-button (click)="getRes()"><i class="fa fa-book" style="font-size:20px;color:white;" aria-hidden="true">  Resources</i></button>
+      <button mat-button (click)="getHome()"><i class="fa fa-home" style="font-size:20px;color:white;" aria-hidden="true">  Home</i></button>
+      <!-- <a mat-button routerLink="/start-page">Start page</a>
+      <a mat-button routerLink="/offer">Offer</a> -->
+      <a mat-button routerLink="/contact">Contact</a>
+    </div>
+   </mat-toolbar>
+  <router-outlet></router-outlet>

@@ -45,6 +45,7 @@ export class ResourcesComponent implements OnInit {
   get() {
     this.resourcesService.getResources().subscribe((data: any[]) => {
       console.log(data);
+    
       this.resources = data;
       this.resources.forEach(x => {
         this.options.push(x.resName);
@@ -140,7 +141,7 @@ uncheckAll() {
       .create(this.user, this.res)
       .subscribe((data: any[]) => {
         //  console.log("data" + data);
-        
+        alert("Resources Added!!!");
       });
     
     this.res = [];

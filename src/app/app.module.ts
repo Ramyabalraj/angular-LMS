@@ -25,6 +25,7 @@ import { RegisteruserComponent } from './registeruser/registeruser.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { ResourcesService } from './resources/resources.service';
 import { SampleComponent } from './sample/sample.component';
+import { NavComponent } from './nav/nav.component';
 @NgModule({
   imports:      [ BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule , HttpClientModule , RouterModule , BrowserAnimationsModule,MatToolbarModule,MatIconModule,MatButtonModule,
     FormsModule,
@@ -33,7 +34,7 @@ import { SampleComponent } from './sample/sample.component';
  MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule  ],
-  declarations: [ AppComponent, HelloComponent, LoginComponent, CreateuserComponent, HomeComponent, RegisteruserComponent, ResourcesComponent, SampleComponent],
+  declarations: [ AppComponent, HelloComponent, LoginComponent, CreateuserComponent, HomeComponent, RegisteruserComponent, ResourcesComponent, SampleComponent, NavComponent],
   providers:    [LoginService,CreateUserService, ResourcesService],
   bootstrap:    [  AppComponent ]
 })
