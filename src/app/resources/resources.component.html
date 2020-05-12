@@ -34,7 +34,8 @@
 
 <div class="row">
 <div class="col-md-4 col-sm-6 col-12" *ngFor="let resource of resources">
-		<div class="card" style="width: 18rem;">
+		
+    <div class="card" style="width: 20rem;">
   
  <img class="card-img-top" src="{{resource.resImg}}" alt="Card image cap" >
 			 <div class="card-body">
@@ -42,7 +43,7 @@
 				<h6 class="card-title">{{resource.resName}}</h6>
 				<a href="#" class="btn btn-primary">{{resource.resType}}</a>
 				<br>
-				<br>
+				
 				<a href="#" class="btn btn-primary">{{resource.resUrl}}</a>
 				<br>
 				<input type="checkbox" #checkboxes  value="{{resource.resName}}"  (change)="checked($event)" >

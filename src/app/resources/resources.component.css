@@ -10,8 +10,9 @@ h2 {
  color: #56baed;
 }
 
-.example-card {
-  max-width: 400px;
+.card {
+
+    height: 40vw;
 }
 
 .example-header-image {
@@ -21,6 +22,10 @@ h2 {
 
 .example-container .mat-form-field + .mat-form-field {
   margin-left: 8px;
+}
+
+.card:hover{
+  box-shadow: -1px 10px 29px 0px rgba(0,0,0,0.8);
 }
 
 .card-img-top {
