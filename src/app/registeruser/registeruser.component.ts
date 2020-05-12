@@ -31,7 +31,7 @@ register(){
       }
       else{
          sessionStorage.setItem('user',(this.users.userId));
-      this.router.navigateByUrl("home");
+      this.router.navigateByUrl("");
       }
   
     })
