@@ -20,4 +20,7 @@ getHome(){
 getView(){
   this.router.navigateByUrl("nav/view"); 
 }
+getSample(){
+   this.router.navigateByUrl("nav/sample"); 
+}
 }

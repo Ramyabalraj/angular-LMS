@@ -26,10 +26,11 @@ import { ResourcesComponent } from './resources/resources.component';
 import { ResourcesService } from './resources/resources.service';
 import { SampleComponent } from './sample/sample.component';
 import { NavComponent } from './nav/nav.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 @NgModule({
   imports:      [ BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule , HttpClientModule , RouterModule , BrowserAnimationsModule,MatToolbarModule,MatIconModule,MatButtonModule,
     FormsModule,
-    MatCardModule,
+    MatCardModule,MatSidenavModule,
     MatSlideToggleModule,
  MatAutocompleteModule,
     MatFormFieldModule,

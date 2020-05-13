@@ -8,113 +8,40 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
 <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.red-indigo.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/thiagoh/de-animate/0.2.3/dist/jquery.de-animate.min.js"></script>
 <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
 <script>
-  
-  //deAnimate
-  $('#card-1').deAnimate({
-    trigger: 'click',
-    classIn: 'flipInX',
-    parallel: false
-  });
-  $('#card-2').deAnimate({
-    trigger: 'click',
-    classIn: 'flipInY',
-    parallel: false
-  });
-  $('#card-3').deAnimate({
-    trigger: 'click',
-    classIn: 'rotateIn',
-    parallel: false
-  });
-  $('#card-4').deAnimate({
-    trigger: 'click',
-    classIn: 'fadeIn',
-    parallel: false
-  });
-  $('#card-5').deAnimate({
-    trigger: 'click',
-    classIn: 'fadeInDown',
-    parallel: false
-  });
-  $('#card-6').deAnimate({
-    trigger: 'click',
-    classIn: 'fadeInDownBig',
-    parallel: false
-  });
-  $('#card-7').deAnimate({
-    trigger: 'click',
-    classIn: 'fadeInLeft',
-    parallel: false
-  });
-  $('#card-8').deAnimate({
-    trigger: 'click',
-    classIn: 'fadeInLeftBig',
-    parallel: false
-  });
-  $('#card-9').deAnimate({
-    trigger: 'click',
-    classIn: 'fadeInRight',
-    parallel: false
-  });
-  $('#card-10').deAnimate({
-    trigger: 'click',
-    classIn: 'fadeInRightBig',
-    parallel: false
-  });
-  $('#card-11').deAnimate({
-    trigger: 'click',
-    classIn: 'fadeInUp',
-    parallel: false
-  });
-  $('#card-12').deAnimate({
-    trigger: 'click',
-    classIn: 'fadeInUpBig',
-    parallel: false
-  });
-  $('#card-13').deAnimate({
-    trigger: 'click',
-    classIn: 'zoomIn',
-    parallel: false
-  });
-  $('#card-14').deAnimate({
-    trigger: 'click',
-    classIn: 'zoomInLeft',
-    parallel: false
-  });
-  $('#card-15').deAnimate({
-    trigger: 'click',
-    classIn: 'zoomInRight',
-    parallel: false
-  });
-  $('#card-16').deAnimate({
-    trigger: 'click',
-    classIn: 'zoomInDown',
-    parallel: false
-  });
-  $('#card-17').deAnimate({
-    trigger: 'click',
-    classIn: 'zoomInUp',
-    parallel: false
-  });
-  $('#card-18').deAnimate({
-    trigger: 'click',
-    classIn: 'bounceIn',
-    parallel: false
-  });
-  $('#card-19').deAnimate({
-    trigger: 'click',
-    classIn: 'bounceInLeft',
-    parallel: false
-  });
-  $('#card-20').deAnimate({
-    trigger: 'click',
-    classIn: 'bounceInRight',
-    parallel: false
-  });
- 
-  </script>
+      // Cache our vars for the fixed sidebar on scroll
+    var $sidebar = $('#sidebar-nav');
+    // Get & Store the original top of our #sidebar-nav so we can test against it
+    var sidebarTop = $sidebar.position().top;
+    // Edit the `- 10` to control when it should disappear when the footer is hit.
+    var blogHeight = $('#content').outerHeight() - 10;
+
+    // Add the function below to the scroll event
+    $(window).scroll(fixSidebarOnScroll);
+
+    // On window scroll, this fn is called (binded above)
+    function fixSidebarOnScroll() {
+        // Cache our scroll top position (our current scroll position)
+        var windowScrollTop = $(window).scrollTop();
+
+        // Add or remove our sticky class on these conditions
+        if (windowScrollTop >= blogHeight || windowScrollTop <= sidebarTop) {
+            // Remove when the scroll is greater than our #content.OuterHeight()
+            // or when our sticky scroll is above the original position of the sidebar
+            $sidebar.removeClass('sticky');
+        }
+        // Scroll is past the original position of sidebar
+        else if (windowScrollTop >= sidebarTop) {
+            // Otherwise add the sticky if $sidebar doesnt have it already!
+            if (!$sidebar.hasClass('sticky')) {
+                $sidebar.addClass('sticky');
+            }
+        }
+    }
+  </script> 
 <my-app>loading</my-app>
 <!-- <app-login></app-login> -->

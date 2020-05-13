@@ -17,10 +17,11 @@ const routes: Routes = [
       { path: "resources", component: ResourcesComponent },
       { path: "view", component: CreateuserComponent },
        { path: "", component: HomeComponent },
+        { path: "sample", component: SampleComponent }
     ]
   },
   { path: "register", component: RegisteruserComponent },
- { path: "sample", component: SampleComponent }
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes, { enableTracing: false })],
