@@ -1,3 +1,4 @@
+<div class="body">
 <div align="center">
 	<h2></h2>
 </div>
@@ -32,19 +33,19 @@
 </div>
 
 
-<div class="row">
-<div class="col-md-4 col-sm-6 col-12" *ngFor="let resource of resources">
+<div class="row justify-content-center" >
+<div class="col-auto mb-4" *ngFor="let resource of resources">
 		
-    <div class="card" style="width: 20rem;">
+    <div class="card" style="width: 25rem; height:100%;">
   
  <img class="card-img-top" src="{{resource.resImg}}" alt="Card image cap" >
 			 <div class="card-body">
 				<h5 class="card-title">{{resource.resTech}}</h5>
 				<h6 class="card-title">{{resource.resName}}</h6>
-				<a href="#" class="btn btn-primary">{{resource.resType}}</a>
-				<br>
-				<br>
-				<a href="#" class="btn btn-primary">{{resource.resUrl}}</a>
+				<a align="left" href="#" class="btn btn-primary">{{resource.resType}}</a>
+		
+				<a   align="right" href="#" class="btn btn-primary">{{resource.resUrl}}</a>
+		
 				<br>
 				<input type="checkbox" #checkboxes  value="{{resource.resName}}"  (change)="checked($event)" >
 				</div>
@@ -54,3 +55,4 @@
 
 		</div>
 	</div>
+</div>

@@ -9,12 +9,16 @@ h2 {
   margin: 40px 8px 10px 8px; 
  color: #56baed;
 }
-
+/* .body{
+  background-color: black;
+} */
 .card {
 
     height: 40vw;
 }
-
+.spacer{
+   padding: 2px;
+}
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
