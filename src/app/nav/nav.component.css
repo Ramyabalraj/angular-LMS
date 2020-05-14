@@ -13,9 +13,11 @@
   padding:10px;
 }
 .bspacer{
-  padding:300px;
+  padding:555px;
 }
-
+.dsapcer{
+top: 64px;
+}
 
 .fa-2x {
 font-size: 2em;
@@ -29,7 +31,13 @@ text-align: center;
 vertical-align: middle;
 font-size:20px;
 }
-
+button{
+  width:30%;
+  background:#3F51B5;
+}
+.text{
+color:white;
+}
 
 .main-menu:hover,nav.main-menu.expanded {
 width:250px;
@@ -38,9 +46,9 @@ overflow:visible;
 
 .main-menu {
  background:#3F51B5;
-border-right:1px solid #e5e5e5;
+
 position:fixed;
-top:64px;
+/* top:64px; */
 bottom:0;
 height:100%;
 left:0;
@@ -74,7 +82,7 @@ position:relative;
 display:table;
 border-collapse:collapse;
 border-spacing:0;
-color:rgb(161, 151, 151);
+
  font-family: arial;
 font-size: 14px;
 text-decoration:none;
@@ -117,7 +125,7 @@ overflow-y:auto;
 overflow:visible;
 }
 
-a:hover,a:focus {
+button:hover,button:focus {
 text-decoration:none;
 }
 
@@ -134,9 +142,12 @@ outline:0;
 margin:0;
 padding:0;
 }
-.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
-color:#fff;
-background-color:blue;
+li:hover{
+  background-color:skyblue;
+}
+.main-menu li:hover>button,nav.main-menu li.active>button,.dropdown-menu>li>button:hover,.dropdown-menu>li>button:focus,.dropdown-menu>.active>button,.dropdown-menu>.active>button:hover,.dropdown-menu>.active>button:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover button,.dashboard-page nav.dashboard-menu ul li.active button {
+color:white;
+background-color:skyblue;
 }
 .area {
 float: left;
