@@ -1,7 +1,9 @@
-<mat-toolbar color="primary" class="mat-elevation-z6 tbar" >
+
+<body class="body">
+  <mat-toolbar color="primary" class="mat-elevation-z6 tbar" >
 
 
-<span >LMS </span>
+
 
 <span class="spacer"></span>
 	<div fxShow="true" fxHide.gt-sm="true">
@@ -9,7 +11,10 @@
         <mat-icon></mat-icon>
       </button>
 	</div>
+  <div style="top:50px;">
+  <i class="fa fa-paper-plane-o" aria-hidden="true" style="font-size:34px;padding:23px;top:10px;"><span aria-hidden="true" style="font-size:28px;padding:10px;font-size:30px;">LMS </span></i>
 	<span class="bspacer"></span>
+  </div>
 	<div fxShow="true" fxHide.lt-md="true">
 		<button mat-button ><i class="fa fa-github" style="font-size:28px"></i></button>
     <button mat-button >	<i class="fa fa-git" style="font-size:25px"></i></button>
@@ -21,14 +26,16 @@
 </mat-toolbar>
 
 <nav class="main-menu">
+	
 	<ul>
-
-
-		<i class="fa fa-cogs fa-2x" aria-hidden="true" style="font-size:28px;color:white;"><p style="font-size:20px;">LMS </p></i>
+    <li>
+	<button mat-button (click)="getMode()"><i class="fa fa-adjust" aria-hidden="true" style="font-size:28px;color:white;padding:7px;"><p style="font-size:20px;"> </p></i> 
+</button> 
+</li>
+		</ul>	
 		<!-- <p style="color:#3F51B5" class="dspacer">lms</p> -->
-		
 
-	</ul>
+
 	<ul>
 
 		<li>
@@ -116,3 +123,4 @@
 
 
 <router-outlet></router-outlet>
+</body>

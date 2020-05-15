@@ -23,4 +23,7 @@ getView(){
 getSample(){
    this.router.navigateByUrl("nav/sample"); 
 }
+getMode(){
+  
+}
 }

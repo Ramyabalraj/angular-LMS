@@ -3,17 +3,21 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
-
+.body{
+  /* background: rgba(0, 0, 0, 0.829); */
+    /* background: rgb(161, 153, 153);
+    light ,plugin plugout */
+}
 .main {
   margin-left: 16px; /* Same as the width of the sidenav */
   padding: 0px 10px;
 }
 
 .spacer{
-  padding:10px;
+  padding:250px;
 }
 .bspacer{
-  padding:555px;
+  padding:305px;
 }
 .dsapcer{
 top: 64px;
