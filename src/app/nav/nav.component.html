@@ -1,16 +1,9 @@
 
-<body class="body">
   <mat-toolbar color="primary" class="mat-elevation-z6 tbar" >
-
-
-
-
+  
+<mat-slide-toggle (change)="getMode($event)">Dark Mode</mat-slide-toggle>
 <span class="spacer"></span>
-	<div fxShow="true" fxHide.gt-sm="true">
-		<button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon></mat-icon>
-      </button>
-	</div>
+
   <div style="top:50px;">
   <i class="fa fa-paper-plane-o" aria-hidden="true" style="font-size:34px;padding:23px;top:10px;"><span aria-hidden="true" style="font-size:28px;padding:10px;font-size:30px;">LMS </span></i>
 	<span class="bspacer"></span>
@@ -25,102 +18,16 @@
 	</div>
 </mat-toolbar>
 
-<nav class="main-menu">
-	
-	<ul>
-    <li>
-	<button mat-button (click)="getMode()"><i class="fa fa-adjust" aria-hidden="true" style="font-size:28px;color:white;padding:7px;"><p style="font-size:20px;"> </p></i> 
+<div id="mySidenav" class="sidenav">
+    <button mat-button id="projects" (click)="getRes()"><i class="fa fa-list fa-2x" style="font-size:20px;color:white;" aria-hidden="true">  </i></button>
+   <button mat-button id="contact" (click)="getHome()"><i class="fa fa-home" style="font-size:20px;color:white;" aria-hidden="true" ></i> 
 </button> 
-</li>
-		</ul>	
-		<!-- <p style="color:#3F51B5" class="dspacer">lms</p> -->
+<button mat-button id="blog" (click)="getRes()"><i class="fa fa-laptop fa-2x" style="font-size:20px;color:white;" aria-hidden="true">  </i></button>
 
+  
+ 
 
-	<ul>
-
-		<li>
-			<button mat-button (click)="getHome()"><i class="fa fa-home" style="font-size:20px;color:white;" aria-hidden="true" ></i> 
-</button> <span class="text">
-                          Dashboard
-                        </span>
-
-		</li>
-		<li class="has-subnav">
-			<button mat-button (click)="getRes()"><i class="fa fa-laptop fa-2x" style="font-size:20px;color:white;" aria-hidden="true">  </i></button><span class="text">
-                          Resources
-                        </span>
-
-		</li>
-		<li class="has-subnav">
-			<button mat-button (click)="getRes()"><i class="fa fa-list fa-2x" style="font-size:20px;color:white;" aria-hidden="true">  </i></button><span class="text">
-                          Subscribe
-                        </span>
-
-		</li>
-		<!-- <li class="has-subnav">
-			<a href="#">
-				<i class="fa fa-folder-open fa-2x"></i>
-				<span class="nav-text">
-                            Pages
-                        </span>
-			</a>
-
-		</li>
-		<li>
-			<a href="#">
-				<i class="fa fa-bar-chart-o fa-2x"></i>
-				<span class="nav-text">
-                            Graphs and Statistics
-                        </span>
-			</a>
-		</li>
-		<li>
-			<a href="#">
-				<i class="fa fa-font fa-2x"></i>
-				<span class="nav-text">
-                           Quotes
-                        </span>
-			</a>
-		</li>
-		<li>
-			<a href="#">
-				<i class="fa fa-table fa-2x"></i>
-				<span class="nav-text">
-                            Tables
-                        </span>
-			</a>
-		</li>
-		<li>
-			<a href="#">
-				<i class="fa fa-map-marker fa-2x"></i>
-				<span class="nav-text">
-                            Maps
-                        </span>
-			</a>
-		</li>
-		<li>
-			<a href="#">
-				<i class="fa fa-info fa-2x"></i>
-				<span class="nav-text">
-                            Documentation
-                        </span>
-			</a>
-		</li> -->
-	</ul>
-
-	<ul class="logout">
-		<li>
-			<a href="#">
-				<i class="fa fa-power-off fa-2x"></i>
-				<span class="nav-text">
-
-                        </span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
+</div>
 
 
 <router-outlet></router-outlet>
-</body>
