@@ -54,7 +54,7 @@ export class ResourcesComponent implements OnInit {
         this.options.push(x.resName);
         this.viewresources.push(x);
        
-      });
+     });
     });
     this.resourcesService.getLevel().subscribe((data: any[]) => {
       console.log(data);
