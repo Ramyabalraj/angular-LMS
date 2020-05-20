@@ -43,6 +43,9 @@ export class ResourcesComponent implements OnInit {
   }
 
   get() {
+    this.resourcesService.resources().subscribe((data: any[]) => {
+      console.log(data);
+   });
     this.resourcesService.getResources().subscribe((data: any[]) => {
       console.log(data);
     

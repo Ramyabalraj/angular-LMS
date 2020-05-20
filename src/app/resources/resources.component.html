@@ -33,7 +33,7 @@
 </div>
 
 
-<div class="row justify-content-center" >
+<!-- <div class="row justify-content-center" >
 <div class="col-auto mb-4" *ngFor="let resource of resources">
 		
     <div class="card" style="width: 25rem; height:100%;">
@@ -54,5 +54,39 @@
 
 
 		</div>
+
 	</div>
+</div> -->
+<div class="row justify-content-center" >
+
+ <div  *ngFor="let resource of resources" >
+
+
+  <div class="column"  class="col-auto mb-4"> 
+  <figure  class="snip1581" style="width: 28rem; height:50%; ">
+
+   <div class="layer"> <!-- Block parent element -->
+      <img src="https://userspringboot.herokuapp.com/images/icons8-python-128%20(2).png" style="padding:70px;"  alt="John Doe">
+     <!-- <div class="imgc"></div> -->
+    </div>
+  
+  
+    <!-- <img  src="https://userspringboot.herokuapp.com/images/icons8-python-64.png" class="imgc"  alt="Avatar" > -->
+   
+  <div class="container">
+  <b>{{resource.resTech}}</b>
+  <p>{{resource.resName}}</p>
+
+ 
+	<a align="left" href="#" class="btn btn-primary">{{resource.resType}}</a>
+  	<a   align="right" href="#" class="btn btn-primary">{{resource.resUrl}}</a>
+		
+				<br>
+				<input type="checkbox" #checkboxes  value="{{resource.resName}}"  (change)="checked($event)" >
+  </div>
+  
+  </figure>
+
+  </div>
 </div>
+</div> 

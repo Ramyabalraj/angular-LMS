@@ -14,10 +14,11 @@ export class ResourcesService {
     );
   }
   
+  
   public getResources() {
     return this.httpClient.get("https://userspringboot.herokuapp.com/api/resources/");
   }
-  
+ 
   public create(userId, resId) {
    
     let param = new HttpParams();
