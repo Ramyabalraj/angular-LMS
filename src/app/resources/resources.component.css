@@ -17,7 +17,7 @@ h2 {
     height: 20vw;
 }
 .spacer{
-   padding: 2px;
+   padding: 6px;
 }
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
@@ -29,8 +29,11 @@ h2 {
 }
 
 .column{
- box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
- 
+ /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);  */
+  overflow:hidden;
+  margin:0px;
+  position: relative;
+   
  
 }
  
@@ -44,7 +47,7 @@ h2 {
 
 @import url(https://fonts.googleapis.com/css?family=Poppins:300,700);
 .snip1581 {
-   border-radius: 5px;
+   /* border-radius: 5px; */
   font-family: 'Poppins:400,700', Arial, sans-serif;
   position: relative;
   /* display: inline-block; */
@@ -54,6 +57,7 @@ h2 {
   min-width: 200px;
   max-width: 310px;
   width: 100%;
+  margin-bottom: -22px;
   background:white;
   color: #ffffff;
   text-align: left;
@@ -68,26 +72,30 @@ h2 {
   box-sizing: border-box;
 }
 .snip1581 img {
-  max-width: 40%;
+  max-width: 50%;
+  size:100%;
   text-align: center;
 }
 .snip1581 figcaption {
   position: absolute;
   top: 0;
-  bottom: 10px;
+  bottom: 0px;
   left: 0;
   right: 0;
-  padding: 50px;
+  padding: 0px;
  
  
 }
 .container {
  /* margin:10px; */
  display: block;
-  margin:auto;
-   
+
+    position: relative;
  object-fit: cover;
    width:100%;
+   top:-12px;
+   bottom:90px;
+   
     border-top-right-radius: 25px;
      border-top-left-radius: 25px;
   padding:30px;
@@ -95,13 +103,16 @@ h2 {
   text-align: center;
    background-color: #3F51B5;
  color: white;
+ margin-bottom: 10px;
 }
 .layer {
+  position: sticky;
     background-color: white;
    width:28rem;
-   height:100%;
+   height:70%;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); 
      display:table-cell; vertical-align:middle; text-align:center;
-   
+    overflow:hidden;
    
 }
 .img-container {
@@ -124,3 +135,21 @@ h2 {
   -webkit-transform: scale(1.3) rotate(5deg);
   transform: scale(1.3) rotate(5deg);
 }
+.search
+{
+  height:100%;
+  width:100%;
+}
+ ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+  background-color: white !important;
+  color: white !important;
+  opacity:0;
+}
+
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+    color: white;
+}
+.mat-checkbox-ripple .mat-ripple-element,.mat-checkbox-checked .mat-checkbox-background {
+background-color: #f44336 !important;}
+
+

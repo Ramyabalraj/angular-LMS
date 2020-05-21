@@ -8,17 +8,24 @@
   NewResources <span class="badge badge-light">{{toBeAdded}}</span>
 </button>
 </div>
+
+  <!--end layout-widget-wrapper -->
+</div>
+
 <div class="example-container" >
 	<form class="example-form" align="center">
-		<mat-form-field class="example-full-width">
-		<i class="fa fa-search" style="font-size:30px;color:#109be0;" aria-hidden="true"></i>	
+  
+    
+		<mat-form-field class="example-full-width" style="background:#3F51B5;;width: 560px;height:51px;color:white;border-radius:25px;text-align:center;">
+	
 
-			<input type="text" class="color"
+			<input type="text" class="search"  style="height:30px;font-size:20pt;color:white;"
            aria-label="Number"
            matInput
            [formControl]="myControl"
-           [matAutocomplete]="auto">
-			<mat-autocomplete #auto="matAutocomplete" (optionSelected)='search($event)'>
+           [matAutocomplete]="auto" placeholder="Search ..." ><span style="position:absolute;font-size:30px; right:15px;top:1px;font-size:30px;color:white;" class="fa fa-search "></span>
+           <!-- <i class="fa fa-search" style="font-size:30px;color:#109be0;" aria-hidden="true"></i>	 -->
+			<mat-autocomplete #auto="matAutocomplete" (optionSelected)='search($event)' class="search" [panelWidth]="559"  style="width:100%;">
 				<mat-option *ngFor="let option of filteredOptions | async" [value]="option">
 					{{option}}
 				</mat-option>
@@ -29,9 +36,14 @@
 
 		</mat-form-field>
 
-	</form>
-</div>
 
+
+	</form>
+ 
+</div>
+<div class="spacer">
+  <p></p>
+  </div>
 
 <!-- <div class="row justify-content-center" >
 <div class="col-auto mb-4" *ngFor="let resource of resources">
@@ -62,28 +74,27 @@
  <div  *ngFor="let resource of resources" >
 
 
-  <div   class="col-auto mb-4"> 
+  <div   class="col-auto mb-4" style="height:70%"> 
     <div class="column">
   <figure  class="snip1581" style="width: 28rem; height:50%; ">
 
-   <div class="layer"> <!-- Block parent element -->
-      <img src="https://userspringboot.herokuapp.com/images/icons8-python-128.png" style="padding:20px;size:10%;"  alt="John Doe">
-     <!-- <div class="imgc"></div> -->
-    </div>
-  
-  
-    <!-- <img  src="https://userspringboot.herokuapp.com/images/icons8-python-64.png" class="imgc"  alt="Avatar" > -->
+   <div class="layer" style="padding:26px;size:40%;"> <!-- Block parent element -->
    
+      <img src="{{resource.resImg}}"   alt="John Doe">
+   
+    </div>
   <div class="container" style="background:#3F51B5;">
   <b>{{resource.resTech}}</b>
-  <p>{{resource.resName}}</p>
+  <br>
+  <p style="font-size:17px;">{{resource.resName}}</p>
 
  
-	<a align="left" href="#" class="btn btn-primary">{{resource.resType}}</a>
-  	<a   align="right" href="#" class="btn btn-primary">{{resource.resUrl}}</a>
+	<!-- <a align="left" href="#" class="btn btn-primary">{{resource.resType}}</a>
+  	<a   align="right" href="#" class="btn btn-primary">{{resource.resUrl}}</a> -->
 		
 				<br>
-				<input type="checkbox" #checkboxes  value="{{resource.resName}}"  (change)="checked($event)" >
+          <mat-checkbox class="example-margin" value="{{resource.resName}}" (change)="checked($event)" >Checked</mat-checkbox>
+			
   </div>
   
   </figure>

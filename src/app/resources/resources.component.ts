@@ -2,7 +2,7 @@ import { Component, OnInit ,ViewChildren, QueryList, ElementRef } from "@angular
 import { ResourcesService } from "./resources.service";
 import { FormControl } from "@angular/forms";
 import { Observable } from "rxjs";
-import { MatAutocompleteSelectedEvent } from "@angular/material";
+import { MatAutocompleteSelectedEvent, MatCheckboxChange } from "@angular/material";
 
 import { map, filter, startWith } from "rxjs/operators";
 @Component({
@@ -43,6 +43,7 @@ export class ResourcesComponent implements OnInit {
   }
 
   get() {
+
   //   this.resourcesService.resources().subscribe((data: any[]) => {
   //     console.log(data);
   //  });
@@ -108,13 +109,13 @@ uncheckAll() {
   }
 
 
-  checked($event) {
-     alert("checked" + $event.target.value);
-    if ($event.target.checked == true) {
+  checked(event:MatCheckboxChange) {
+     alert("checked" + event.source.value);
+    if (event.checked == true) {
      
       //  this.isChecked = !this.isChecked;
       this.viewresources.forEach(x => {
-        if ($event.target.value == x.resName) {
+        if (event.source.value == x.resName) {
           console.log("success" + x.resId + "" + x.resName);
           this.res.push(x.resId);
           console.log(this.res);
@@ -124,7 +125,7 @@ uncheckAll() {
     } else {
       //this.res = [];
       this.viewresources.forEach(x => {
-        if ($event.target.value == x.resName) {
+        if (event.source.value == x.resName) {
           console.log("success" + x.resId + "" + x.resName);
           for (var i = 0; i < this.res.length; i++) {
             if (this.res[i] === x.resId) {
