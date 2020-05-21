@@ -12,7 +12,7 @@ import { map, filter, startWith } from "rxjs/operators";
 })
 export class ResourcesComponent implements OnInit {
   @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
-
+isChecked:boolean;
   resources: [] = [];
   viewresources: [] = [];
   level: [] = [];
@@ -104,7 +104,7 @@ export class ResourcesComponent implements OnInit {
 
 uncheckAll() {
     this.checkboxes.forEach((element) => {
-      element.nativeElement.checked = false;
+      this.isChecked = false;
     });
   }
 
