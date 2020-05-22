@@ -1,5 +1,7 @@
 import { Component, OnInit ,ViewChildren, QueryList, ElementRef , Input } from "@angular/core";
 import { ResourcesService } from "./resources.service";
+import { ViewChild } from '@angular/core';
+import { MatCheckbox } from '@angular/material';
 import { FormControl } from "@angular/forms";
 import { Observable } from "rxjs";
 import { MatAutocompleteSelectedEvent, MatCheckboxChange } from "@angular/material";
@@ -11,9 +13,11 @@ import { map, filter, startWith } from "rxjs/operators";
   styleUrls: ["./resources.component.css"]
 })
 export class ResourcesComponent implements OnInit {
-  @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
+ // @ViewChildren("myCheckBox") checkboxes: QueryList<ElementRef>;
+   @ViewChild('myCheckBox') private myCheckbox: MatCheckbox;
 
-@Input() isChecked: boolean
+ isChecked: boolean=false;
+ disable:boolean;
   resources: [] = [];
   viewresources: [] = [];
   level: [] = [];
@@ -104,25 +108,19 @@ export class ResourcesComponent implements OnInit {
 
 
 uncheckAll() {
-    // this.checkboxes.forEach((element) => {
-     
-      if(this.isChecked==true){
-        console.log(this.isChecked+"this.isChecked=false;");
-this.isChecked = false;
-      }
-      
-    else{
-      this.isChecked=false;
-      console.log(this.isChecked+"this.isChecked=false;");
-    }
-    // });
-  }
-hi(){
-  alert();
+  alert(this.myCheckbox.checked);
+ 
+if(this.myCheckbox.checked == true){
+ this.myCheckbox.checked = false;
+}
+ 
+  alert(this.myCheckbox.checked);
+  
 }
 
   checked(event:MatCheckboxChange) {
-     alert("checked" + event.source.value);
+     //alert("checked" + event.source.value);
+    
     if (event.checked == true) {
      
       //  this.isChecked = !this.isChecked;
@@ -132,6 +130,18 @@ hi(){
           this.res.push(x.resId);
           console.log(this.res);
           this.toBeAdded = this.res.length;
+//         setTimeout(() => 
+// {
+   
+   
+   
+// },
+// 5000);
+// alert("You subscribed resources check Add resources btn");
+// this.add();
+//  this.isChecked=false;
+         
+          
         }
       });
     } else {
@@ -149,6 +159,7 @@ hi(){
         }
       });
     }
+   
   }
 
   add() {
@@ -158,14 +169,17 @@ hi(){
       .subscribe((data: any[]) => {
         //  console.log("data" + data);
         alert("Resources Added!!!");
+       
       });
     
     this.res = [];
     this.toBeAdded = this.res.length;
     console.log("this.res.length:" + this.res.length);
-    this.uncheckAll();
-  
-      console.log(this.isChecked+"ncjkh");
+   
+  this.uncheckAll();
+   
+    console.log(this.isChecked+"ncjkh");
+       //this.disable=false;
     
   }
 }
