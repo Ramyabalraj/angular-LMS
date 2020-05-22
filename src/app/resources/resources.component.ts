@@ -13,10 +13,15 @@ import { map, filter, startWith } from "rxjs/operators";
   styleUrls: ["./resources.component.css"]
 })
 export class ResourcesComponent implements OnInit {
- // @ViewChildren("myCheckBox") checkboxes: QueryList<ElementRef>;
-   @ViewChild('myCheckBox') private myCheckbox: MatCheckbox;
+  @ViewChildren('inputs') public inputs: ElementRef<HTMLInputElement>[];
 
- isChecked: boolean=false;
+  uncheck() {
+    this.inputs.forEach(check => {
+      check.nativeElement.checked = false;
+    })
+  }
+
+ 
  disable:boolean;
   resources: [] = [];
   viewresources: [] = [];
@@ -107,25 +112,16 @@ export class ResourcesComponent implements OnInit {
   }
 
 
-uncheckAll() {
-  alert(this.myCheckbox.checked);
- 
-if(this.myCheckbox.checked == true){
- this.myCheckbox.checked = false;
-}
- 
-  alert(this.myCheckbox.checked);
-  
-}
 
-  checked(event:MatCheckboxChange) {
+
+  checked($event) {
      //alert("checked" + event.source.value);
     
-    if (event.checked == true) {
+    if ($event.target.checked == true) {
      
       //  this.isChecked = !this.isChecked;
       this.viewresources.forEach(x => {
-        if (event.source.value == x.resName) {
+        if ($event.target.value == x.resName) {
           console.log("success" + x.resId + "" + x.resName);
           this.res.push(x.resId);
           console.log(this.res);
@@ -147,7 +143,7 @@ if(this.myCheckbox.checked == true){
     } else {
       //this.res = [];
       this.viewresources.forEach(x => {
-        if (event.source.value == x.resName) {
+        if ($event.target.value == x.resName) {
           console.log("success" + x.resId + "" + x.resName);
           for (var i = 0; i < this.res.length; i++) {
             if (this.res[i] === x.resId) {
@@ -176,9 +172,9 @@ if(this.myCheckbox.checked == true){
     this.toBeAdded = this.res.length;
     console.log("this.res.length:" + this.res.length);
    
-  this.uncheckAll();
+ 
    
-    console.log(this.isChecked+"ncjkh");
+   
        //this.disable=false;
     
   }
