@@ -92,8 +92,8 @@
 	<!-- <a align="left" href="#" class="btn btn-primary">{{resource.resType}}</a>
   	<a   align="right" href="#" class="btn btn-primary">{{resource.resUrl}}</a> -->
 		
-				<br>
-          <mat-checkbox class="example-margin" value="{{resource.resName}}" (change)="checked($event)" checked="{{isChecked}}" >Checked</mat-checkbox>
+				<br>{{isChecked}}
+          <mat-checkbox class="example-margin" value="{{resource.resName}}" (change)="checked($event)" checked="isChecked" disable="thisdisable">Checked</mat-checkbox>
 			
   </div>
   

@@ -1,4 +1,4 @@
-import { Component, OnInit ,ViewChildren, QueryList, ElementRef } from "@angular/core";
+import { Component, OnInit ,ViewChildren, QueryList, ElementRef , Input } from "@angular/core";
 import { ResourcesService } from "./resources.service";
 import { FormControl } from "@angular/forms";
 import { Observable } from "rxjs";
@@ -12,7 +12,8 @@ import { map, filter, startWith } from "rxjs/operators";
 })
 export class ResourcesComponent implements OnInit {
   @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
-isChecked:boolean;
+
+@Input() isChecked: boolean
   resources: [] = [];
   viewresources: [] = [];
   level: [] = [];
@@ -103,11 +104,22 @@ isChecked:boolean;
 
 
 uncheckAll() {
-    this.checkboxes.forEach((element) => {
-      this.isChecked = false;
-    });
+    // this.checkboxes.forEach((element) => {
+     
+      if(this.isChecked==true){
+        console.log(this.isChecked+"this.isChecked=false;");
+this.isChecked = false;
+      }
+      
+    else{
+      this.isChecked=false;
+      console.log(this.isChecked+"this.isChecked=false;");
+    }
+    // });
   }
-
+hi(){
+  alert();
+}
 
   checked(event:MatCheckboxChange) {
      alert("checked" + event.source.value);
@@ -152,5 +164,8 @@ uncheckAll() {
     this.toBeAdded = this.res.length;
     console.log("this.res.length:" + this.res.length);
     this.uncheckAll();
+  
+      console.log(this.isChecked+"ncjkh");
+    
   }
 }
