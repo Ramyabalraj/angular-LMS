@@ -96,17 +96,17 @@ h2 {
     position: relative;
  object-fit: cover;
    width:100%;
-   top:-12px;
-   bottom:90px;
-   
+   top:-15px;
+   bottom:190px;
+   vertical-align: text-top;
     border-top-right-radius: 25px;
      border-top-left-radius: 25px;
-  padding:30px;
+  padding:45px;
     overflow:hidden;
   text-align: center;
    background-color: #3F51B5;
  color: white;
- margin-bottom: 10px;
+ margin-bottom: 2px;
 }
 .layer {
   position: sticky;
@@ -219,4 +219,69 @@ background-color: #f44336 !important;}
 
 .checkbox input[type=checkbox]:checked + label {
   left: 43px;
+}
+/* Base styling*/
+body {
+  background-color: lightgrey;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 1em 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Popover styling */
+
+a {
+  text-decoration: none;
+}
+
+.popover__title {
+  font-size: 24px;
+  line-height: 36px;
+  text-decoration: none;
+  color: rgb(228, 68, 68);
+  text-align: right;
+  padding: 25px 0;
+}
+
+#popover__wrapper {
+  position: relative;
+  margin-right: 1rem;
+  display: inline-block;
+  
+}
+.popover__content {
+  opacity: 1.5;
+  visibility: hidden;
+  position: absolute;
+  left: -90px;
+  top:54px;
+  transform: translate(0, 10px);
+  background-color:#2196F3;
+  padding: 1rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  width: 270px;
+  transform-origin: 100% 100%;
+}
+.popover__content:before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  right: calc(50% - 10px);
+  top: -8px;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #bfbfbf transparent;
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+#popover__wrapper:hover .popover__content {
+  z-index: 5;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -20px);
+  transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+.popover__message {
+  text-align: center;
 }

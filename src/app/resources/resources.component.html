@@ -87,7 +87,7 @@
    
     </div>
   <div class="container" style="background:#3F51B5;">
-  <b>{{resource.resTech}}</b>
+  <b style="top:50%;">{{resource.resTech}}</b>
   <br>
   <p style="font-size:17px;">{{resource.resName}}</p>
 
@@ -95,12 +95,20 @@
 	<!-- <a align="left" href="#" class="btn btn-primary">{{resource.resType}}</a>
   	<a   align="right" href="#" class="btn btn-primary">{{resource.resUrl}}</a> -->
 		
-				<br>
+			
           
-			<div class="checkbox">
-  <input id="{{resource.resName}}" type="checkbox" #inputs type="checkbox"     value="{{resource.resName}}" (change)="checked($event)"  />
+			<div class="checkbox" id="popover__wrapper">
+  <input id="{{resource.resName}}" type="checkbox" #inputs type="checkbox"  class="popover__title"   value="{{resource.resName}}" (change)="checked($event)"  />
   <label for="{{resource.resName}}"></label>
+  <div class="popover__content">
+    <p class="popover__message">if yes, click addresources button.
+    </p>
+
+  </div>
+
 </div>
+<br>
+<br>
   </div>
   
   </figure>
