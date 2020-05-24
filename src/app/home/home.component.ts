@@ -24,7 +24,7 @@ console.log("ahvhev"+this.user);
 //this.userId=this.user.userId;
 
   this.createUserService.getUser(this.user).subscribe((data: any[])=>{
-      console.log("hiii"+JSON.stringify(data));
+     // console.log("hiii"+JSON.stringify(data));
       this.users.push(data);
      
     })  

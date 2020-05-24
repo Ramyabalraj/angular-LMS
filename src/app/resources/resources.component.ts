@@ -20,17 +20,21 @@ export class ResourcesComponent implements OnInit {
       check.nativeElement.checked = false;
     })
   }
-
- 
+  j:number=0;
+ans2:[]=[];
+  uniqueArray = [];
  disable:boolean;
   resources: [] = [];
   viewresources: [] = [];
   level: [] = [];
   res: number[] = [];
   sresId:[]=[];
+  ans:[]=[];
   sres: number;
   i:number=0;
   uId;
+  result:[]=[];
+  resourcesresult:[]=[];
   user: any;
   rName:String;
   default: string = "All";
@@ -126,22 +130,11 @@ export class ResourcesComponent implements OnInit {
       this.viewresources.forEach(x => {
         if ($event.target.value == x.resName) {
           console.log("success" + x.resId + "" + x.resName);
-          //this.res.push(x.resId);
+          this.res.push(x.resId);
           // this.uId=x.resId;
-         this.uId= this.sresId.indexOf(x.resId);
-         if(this.uId== -1){
-this.res=this.sresId;
-         }
-         else{
-            this.sresId.splice(this.uId, 1); 
-this.res=this.sresId;
-         }
-          this.sresId.forEach(x=>{
-            console.log(x+"vdgevu");
-          });
-          this.res.forEach(x=>{
-            console.log("bx"+)
-          })
+        this.res.forEach(x=>{
+          console.log("res"+x)
+;        })
           this.toBeAdded = this.res.length;
    
         }
@@ -166,19 +159,38 @@ this.res=this.sresId;
 
 
   add() {
+     
     this.user = sessionStorage.getItem("user");
     this.resourcesService.getUser(this.user).subscribe((data: any[]) => {
-        // console.log("data" +JSON.stringify(data));
-       // alert("Resources Added!!!");
-       
+       this.result.push(data);
+       this.result.forEach(x =>{
+         this.resourcesresult=x.resources;
+       })
+       this.resourcesresult.forEach(x =>{
+         this.sresId.push(x.resId);
+         //console.log("ffgg"+x.resId);
+       })
+       this.uniqueArray = this.removeDuplicates(this.sresId);
+       console.log("thisss"+this.uniqueArray.length);
+     
       });
-    this.resourcesService
-      .create(this.user, this.res)
-      .subscribe((data: any[]) => {
-        //  console.log("data" + data);
-        alert("Resources Added!!!");
+this.res.forEach(x=>{
+  console.log("bhjcL"+x);
+  
+})
+for(var i=0;i<this.uniqueArray.length;i++){
+  for(var j=0;j<this.uniqueArray.length;j++){
+     console.log("vedbh"+this.res[i]);
+  }
+}
+
+    // this.resourcesService
+    //   .create(this.user, this.res)
+    //   .subscribe((data: any[]) => {
+    //     //  console.log("data" + data);
+    //     alert("Resources Added!!!");
        
-      });
+    //   });
     
     this.res = [];
     this.toBeAdded = this.res.length;
@@ -190,4 +202,16 @@ this.res=this.sresId;
        //this.disable=false;
     
   }
+
+   removeDuplicates(array) {
+  let x = {};
+  array.forEach(function(i) {
+    if(!x[i]) {
+      x[i] = true
+    }
+  })
+  console.log(Object.keys(x));
+  return Object.keys(x);
+};
+   
 }
