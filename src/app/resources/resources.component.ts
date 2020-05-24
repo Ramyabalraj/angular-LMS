@@ -174,23 +174,23 @@ ans2:[]=[];
        console.log("thisss"+this.uniqueArray.length);
      
       });
-this.res.forEach(x=>{
+     this.ans2= this.findCommonElement(this.res,this.uniqueArray);
+this.ans2.forEach(x=>{
   console.log("bhjcL"+x);
   
 })
-for(var i=0;i<this.uniqueArray.length;i++){
-  for(var j=0;j<this.uniqueArray.length;j++){
-     console.log("vedbh"+this.res[i]);
-  }
-}
 
-    // this.resourcesService
-    //   .create(this.user, this.res)
-    //   .subscribe((data: any[]) => {
-    //     //  console.log("data" + data);
-    //     alert("Resources Added!!!");
+
+
+
+
+    this.resourcesService
+      .create(this.user, this.res)
+      .subscribe((data: any[]) => {
+        //  console.log("data" + data);
+        alert("Resources Added!!!");
        
-    //   });
+      });
     
     this.res = [];
     this.toBeAdded = this.res.length;
@@ -213,5 +213,28 @@ for(var i=0;i<this.uniqueArray.length;i++){
   console.log(Object.keys(x));
   return Object.keys(x);
 };
-   
+  findCommonElement(array1, array2) { 
+      
+    // Loop for array1 
+    for(let i = 0; i < array1.length; i++) { 
+          
+        // Loop for array2 
+        for(let j = 0; j < array2.length; j++) { 
+              
+            // Compare the element of each and 
+            // every element from both of the 
+            // arrays 
+            if(array1[i] === array2[j]) { 
+              console.log("gug");
+                // Return if common element found 
+               array1.splice(i,1);
+             return array1;
+                
+            } 
+        } 
+    } 
+      
+    // Return if no common element exist 
+    return (array1); 
+}  
 }
