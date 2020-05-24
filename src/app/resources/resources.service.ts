@@ -34,8 +34,11 @@ export class ResourcesService {
   }
 
  public getResId(id){
-   console.log("https://userspringboot.herokuapp.com/api/resources/",id);
+  
      return this.httpClient.get(" https://userspringboot.herokuapp.com/api/resources/"+id);
+  }
+  public getUser(id) {
+    return this.httpClient.get("https://userspringboot.herokuapp.com/api/users/" + id);
   }
  
 }

@@ -27,7 +27,10 @@ export class ResourcesComponent implements OnInit {
   viewresources: [] = [];
   level: [] = [];
   res: number[] = [];
+  sresId:[]=[];
   sres: number;
+  i:number=0;
+  uId;
   user: any;
   rName:String;
   default: string = "All";
@@ -123,21 +126,24 @@ export class ResourcesComponent implements OnInit {
       this.viewresources.forEach(x => {
         if ($event.target.value == x.resName) {
           console.log("success" + x.resId + "" + x.resName);
-          this.res.push(x.resId);
-          console.log(this.res);
+          //this.res.push(x.resId);
+          // this.uId=x.resId;
+         this.uId= this.sresId.indexOf(x.resId);
+         if(this.uId== -1){
+this.res=this.sresId;
+         }
+         else{
+            this.sresId.splice(this.uId, 1); 
+this.res=this.sresId;
+         }
+          this.sresId.forEach(x=>{
+            console.log(x+"vdgevu");
+          });
+          this.res.forEach(x=>{
+            console.log("bx"+)
+          })
           this.toBeAdded = this.res.length;
-//         setTimeout(() => 
-// {
    
-   
-   
-// },
-// 5000);
-// alert("You subscribed resources check Add resources btn");
-// this.add();
-//  this.isChecked=false;
-         
-          
         }
       });
     } else {
@@ -158,8 +164,14 @@ export class ResourcesComponent implements OnInit {
    
   }
 
+
   add() {
     this.user = sessionStorage.getItem("user");
+    this.resourcesService.getUser(this.user).subscribe((data: any[]) => {
+        // console.log("data" +JSON.stringify(data));
+       // alert("Resources Added!!!");
+       
+      });
     this.resourcesService
       .create(this.user, this.res)
       .subscribe((data: any[]) => {
