@@ -1,4 +1,4 @@
-
+<body>
   <mat-toolbar color="primary" class="mat-elevation-z6 tbar" >
   
 <mat-slide-toggle (change)="getMode($event)">Dark Mode</mat-slide-toggle>
@@ -19,10 +19,12 @@
 </mat-toolbar>
 
 <div id="mySidenav" class="sidenav">
-    <button mat-button id="projects" (click)="getRes()"><i class="fa fa-list fa-2x" style="font-size:20px;color:white;" aria-hidden="true">  </i></button>
+  <button mat-button id="projects" (click)="getSample()"><i class="fa fa-bookmark fa-2x" style="font-size:20px;color:white;" aria-hidden="true">  </i></button>
    <button mat-button id="contact" (click)="getHome()"><i class="fa fa-home" style="font-size:20px;color:white;" aria-hidden="true" ></i> 
 </button> 
-<button mat-button id="blog" (click)="getRes()"><i class="fa fa-laptop fa-2x" style="font-size:20px;color:white;" aria-hidden="true">  </i></button>
+<button mat-button id="blog" (click)="getRes()"><i class="fa fa-list fa-2x" style="font-size:20px;color:white;" aria-hidden="true">  </i></button>
+<button mat-button id="hack" (click)="getHack()"><i class="fa fa-lightbulb-o fa-2x" style="font-size:30px;color:white;" aria-hidden="true">  </i></button>
+<button mat-button id="about" (click)="getAbout()"><i class="fa fa-newspaper-o fa-2x" style="font-size:19px;color:white;" aria-hidden="true">  </i></button>
 
   
  
@@ -31,3 +33,4 @@
 
 
 <router-outlet></router-outlet>
+</body>

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
-
+import { Users } from '../login/users';
+import { Router } from '@angular/router'
+import { CreateUserService } from '../createuser/createuser-service.service';
 @Component({
   selector: 'app-sample',
   templateUrl: './sample.component.html',
@@ -10,21 +9,31 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class SampleComponent implements OnInit {
 
-   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]>;
+   
+model = new Users();
+users =[];
+userId:number;
+user:number;
+ constructor(private createUserService:CreateUserService , private router : Router) { }
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
+    this.getUserResources();
   }
+getUserResources(){
+ this.user =(sessionStorage.getItem('user')) ;
+console.log("ahvhev"+this.user);
+//this.userId=this.user.userId;
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  }
+  this.createUserService.getUser(this.user).subscribe((data: any[])=>{
+     // console.log("hiii"+JSON.stringify(data));
+      this.users.push(data);
+     
+    })  
+}
+getRes(){
+ this.router.navigateByUrl("home/resources"); 
+}
+sample(){
+   this.router.navigateByUrl("sample"); 
+}
 }

@@ -111,7 +111,7 @@ h2 {
 .layer {
   position: sticky;
     background-color: white;
-   width:28rem;
+   width:31rem;
    height:70%;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); 
      display:table-cell; vertical-align:middle; text-align:center;

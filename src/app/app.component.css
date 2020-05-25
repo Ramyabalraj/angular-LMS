@@ -1,3 +1,9 @@
-body, .main-menu {
-    height:100%
+
+
+@media 
+  (-webkit-min-device-pixel-ratio: 2), 
+  (min-resolution: 192dpi) { 
+  .img {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSTV8VkbDef5G-bAlm8wcs3OvenKdGpZcGwdcld4rA5exPZ7vLu&usqp=CAU");
+  }
 }

@@ -1,86 +1,48 @@
-<!-- <nav class="navbar navbar-dark bg-primary">
-	<a class="navbar-brand" href="#">
-		LMS
-	</a>
-	<a [routerLink]="'/resources'" routerLinkActive="active" class="link" href="#">Resources
-		<span class="sr-only">(current)</span></a>
-	<!-- <a [routerLink]="'/register'" routerLinkActive="active" class="link" href="#">Item2
-		<span class="sr-only">(current)</span></a>
-	<a [routerLink]="'/register'" routerLinkActive="active" class="link" href="#">Item3
-		<span class="sr-only">(current)</span></a>
-	<a [routerLink]="'/register'" routerLinkActive="active" class="link" href="#">Item4
-		<span class="sr-only">(current)</span></a> -->
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <script>
+   
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
 
-
-<!-- <form class="form-inline my-2 my-lg-0">
-		<input class="form-control mr-sm-2" type="search" placeholder="Search">
-		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-	</form>
-
-	<button class="navbar-toggler" type="button">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-</nav> -->
-
-
-
-
-<div align="center">
-	<h4>Welcome upgrade yourself!!!</h4>
-</div>
-
-<!-- <div class="row justify-content-center" >
-<div class="col-auto mb-4" *ngFor="let resource of user.resources ">
-			<div class="card" style="width: 25rem; height:100%;">
- <img class="card-img-top" src="{{resource.resImg}}" alt="Card image cap" >
- <!-- <div class="card-img-overlay card-inverse"> 
-                <h3 class="card-img-text">{{resource.resName}}</h3> 
-            </div>   -->
-<!-- <div class="card-body">
-					<h5 class="card-title">{{resource.resTech}}</h5>
-					<h6 class="card-title">{{resource.resName}}</h6>
-					<a href="#" class="btn btn-primary">{{resource.resType}}</a>
-				
-					<a href="#" class="btn btn-primary">{{resource.resUrl}}</a>
-				</div>
-			</div>
-
-		</div> -->
-<div *ngFor="let user of users ">
-	<div class="row justify-content-center">
-
-		<div *ngFor="let resource of user.resources ">
-
-
-			<div class="col-auto mb-4" style="height:70%">
-				<div class="column">
-					<figure class="snip1581" style="width: 28rem; height:50%; ">
-
-						<div class="layer" style="padding:26px;size:40%;">
-							<!-- Block parent element -->
-
-							<img src="{{resource.resImg}}"   alt="John Doe">
-
+  </script> 
+</head>
+<body>
+ 
+<div class="home">
+  <div class="popover__wrapper">
+<button type="button" class="btn btn-primary"  style="margin-right:36px;" >History</button>
+  <div class="popover__content">
+    <p class="popover__message">Shows your History.</p>
+    
+  </div>
+  </div>
+   <div class="popover__wrapper">
+<button type="button" class="btn btn-primary" style="margin-right:36px;" >Certificates</button>
+  <div class="popover__content">
+    <p class="popover__message">Have certificates with practical knowledge</p>
+    <!-- Not just learn have practical knowledge -->
+  </div>
+  </div>
+    <div class="popover__wrapper">
+<button type="button" class="btn btn-primary" >your Lit</button>
+  <div class="popover__content">
+    <p class="popover__message">Post your own solutions and techniques of code.</p>
     </div>
-							<div class="container" style="background:#3F51B5;">
-								<b>{{resource.resTech}}</b>
-								<br>
-								<p style="font-size:17px;">{{resource.resName}}</p>
-
-
-								<a align="left" href="#" class="btn btn-primary">{{resource.resType}}</a>
-								<a href="#" class="btn btn-primary">{{resource.resUrl}}</a>
-
-								<br>
-								<!-- <mat-checkbox class="example-margin" value="{{resource.resName}}"
-									(change)="checked($event)" checked="isChecked">Checked</mat-checkbox> -->
-
-							</div>
-
-					</figure>
-				</div>
-			</div>
-		</div>
-	</div>
+  </div>
 </div>
+
+
+
+
+
+ <div style="padding:10px;text-align:center">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSXLwcqdOGJtvKN7ukK4B0oTKQwJjh9T3DGcjOTWXgt6Jv0-iaQ&usqp=CAU" >
+  </div>
+  
+
+</body></html>

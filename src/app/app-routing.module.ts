@@ -8,6 +8,8 @@ import { RegisteruserComponent } from "./registeruser/registeruser.component";
 import { ResourcesComponent } from "./resources/resources.component";
 import { SampleComponent } from "./sample/sample.component";
 import { NavComponent } from "./nav/nav.component";
+import { AboutComponent } from './about/about.component';
+import { HackComponent } from './hack/hack.component';
 const routes: Routes = [
   { path: "", component: LoginComponent },
   {
@@ -17,7 +19,9 @@ const routes: Routes = [
       { path: "resources", component: ResourcesComponent },
       { path: "view", component: CreateuserComponent },
        { path: "", component: HomeComponent },
-        { path: "sample", component: SampleComponent }
+        { path: "sample", component: SampleComponent },
+        { path: "hack", component: HackComponent },
+        { path: "about", component: AboutComponent }
     ]
   },
   { path: "register", component: RegisteruserComponent },

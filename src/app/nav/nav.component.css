@@ -40,17 +40,24 @@ top: 64px;
 }
 
 #contact {
-  top: 200px;
+  top: 100px;
   background-color: #555;
 }
 
 #blog {
-  top: 275px;
+  top: 175px;
   background-color: #2196F3;
 }
 
 #projects {
-  top: 355px;
+  top: 255px;
   background-color: #f44336;
 }
-
+#hack {
+  top: 340px;
+  background-color: #f5af19;
+}
+#about {
+  top: 425px;
+  background-color: green;
+}

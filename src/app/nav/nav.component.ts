@@ -24,6 +24,12 @@ getView(){
 getSample(){
    this.router.navigateByUrl("nav/sample"); 
 }
+getHack(){
+ this.router.navigateByUrl("nav/hack"); 
+}
+getAbout(){
+ this.router.navigateByUrl("nav/about"); 
+}
 getMode(event: MatSlideToggleChange){
   console.log("$event.target.checked"+event.checked);
  this.isDarkMode=event.checked;

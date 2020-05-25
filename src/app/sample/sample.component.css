@@ -1,59 +1,173 @@
-body {
-    background-image: linear-gradient(to right , #cb2d3e , #ef473a);
+h4 {
+   display: flex;
+   font-size: 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display:inline-block;
+  margin: 40px 8px 10px 8px; 
+ color: #109be0;
+}
+.link{
+  color: white;
+}
+.example-spacer{
+   padding: 0 14px;
+}
+.card{
+  width:100%;
+   height: 35vw;
+}
+.card-img-top {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+    
+}
+.card-img-text{
+   position: absolute;
+      color: white;
+      font-size: 24px;
+}
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.searchBox {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform:  translate(-50%,50%);
-    background: #2f3640;
-    height: 40px;
-    border-radius: 40px;
-    padding: 10px;
+.example-radio-group {
+  display: block;
+  border: 1px solid #555;
+  margin: 20px;
+  padding: 10px;
+}
+ #sidebar-nav.sticky {
+    position:fixed;
+    top:5px;
+}
+.column{
+ /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);  */
+  overflow:hidden;
+  margin:0px;
+  position: relative;
+   
+ 
+}
+ 
 
+.card-img-text{
+   position: absolute;
+   
+      color: white;
+      font-size: 24px;
 }
 
-.searchBox:hover > .searchInput {
-    width: 240px;
-    padding: 0 6px;
+@import url(https://fonts.googleapis.com/css?family=Poppins:300,700);
+.snip1581 {
+   /* border-radius: 5px; */
+  font-family: 'Poppins:400,700', Arial, sans-serif;
+  position: relative;
+  /* display: inline-block; */
+  
+  /* //overflow: hidden; */
+  margin: 8px;
+  min-width: 200px;
+  max-width: 310px;
+  width: 100%;
+  margin-bottom: -22px;
+  background:white;
+  color: #ffffff;
+  text-align: left;
+  font-size: 16px;
+ 
+}
+.snip1581 * {
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+ -webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.snip1581 img {
+  max-width: 50%;
+  size:100%;
+  text-align: center;
+}
+.snip1581 figcaption {
+  position: absolute;
+  top: 0;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  padding: 0px;
+ 
+ 
+}
+.container {
+ /* margin:10px; */
+ display: block;
+
+    position: relative;
+ object-fit: cover;
+   width:100%;
+   top:-12px;
+   bottom:90px;
+   
+    border-top-right-radius: 25px;
+     border-top-left-radius: 25px;
+  padding:30px;
+    overflow:hidden;
+  text-align: center;
+   background-color: #3F51B5;
+ color: white;
+ margin-bottom: 10px;
+}
+.layer {
+  position: sticky;
+    background-color: white;
+   width:28rem;
+   height:70%;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); 
+     display:table-cell; vertical-align:middle; text-align:center;
+    overflow:hidden;
+   
+}
+.img-container {
+        text-align: center;
+      }
+.imgc{
+ padding: 22px;
+}
+.snip1581 h3 {
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 3px 0;
 }
 
-.searchBox:hover > .searchButton {
-  background: white;
-  color : #2f3640;
+.snip1581:hover img,
+.snip1581.hover img {
+  -webkit-transform: scale(1.3) rotate(5deg);
+  transform: scale(1.3) rotate(5deg);
+}
+.search
+{
+  height:100%;
+  width:100%;
+}
+ ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+  background-color: white !important;
+  color: white !important;
+  opacity:0;
 }
 
-.searchButton {
+::ng-deep .mat-form-field-empty.mat-form-field-label {
     color: white;
-    float: right;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #2f3640;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
 }
+.mat-checkbox-ripple .mat-ripple-element,.mat-checkbox-checked .mat-checkbox-background {
+background-color: #f44336 !important;}
 
-.searchInput {
-    border:none;
-    background: none;
-    outline:none;
-    float:left;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 40px;
-    width: 0px;
 
-}
-
-@media screen and (max-width: 620px) {
-.searchBox:hover > .searchInput {
-    width: 150px;
-    padding: 0 6px;
-}
-}

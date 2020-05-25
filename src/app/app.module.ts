@@ -28,6 +28,8 @@ import { ResourcesService } from './resources/resources.service';
 import { SampleComponent } from './sample/sample.component';
 import { NavComponent } from './nav/nav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { AboutComponent } from './about/about.component';
+import { HackComponent } from './hack/hack.component';
 @NgModule({
   imports:      [ BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule , HttpClientModule , RouterModule , BrowserAnimationsModule,MatToolbarModule,MatIconModule,MatButtonModule,
     FormsModule,MatCheckboxModule,
@@ -36,7 +38,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
  MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule  ],
-  declarations: [ AppComponent, HelloComponent, LoginComponent, CreateuserComponent, HomeComponent, RegisteruserComponent, ResourcesComponent, SampleComponent, NavComponent],
+  declarations: [ AppComponent, HelloComponent, LoginComponent, CreateuserComponent, HomeComponent, RegisteruserComponent, ResourcesComponent, SampleComponent, NavComponent, AboutComponent, HackComponent],
   providers:    [LoginService,CreateUserService, ResourcesService],
   bootstrap:    [  AppComponent ]
 })

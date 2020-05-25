@@ -1,10 +1,20 @@
-import { Component, OnInit ,ViewChildren, QueryList, ElementRef , Input } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChildren,
+  QueryList,
+  ElementRef,
+  Input
+} from "@angular/core";
 import { ResourcesService } from "./resources.service";
-import { ViewChild } from '@angular/core';
-import { MatCheckbox } from '@angular/material';
+import { ViewChild } from "@angular/core";
+import { MatCheckbox } from "@angular/material";
 import { FormControl } from "@angular/forms";
 import { Observable } from "rxjs";
-import { MatAutocompleteSelectedEvent, MatCheckboxChange } from "@angular/material";
+import {
+  MatAutocompleteSelectedEvent,
+  MatCheckboxChange
+} from "@angular/material";
 
 import { map, filter, startWith } from "rxjs/operators";
 @Component({
@@ -13,30 +23,31 @@ import { map, filter, startWith } from "rxjs/operators";
   styleUrls: ["./resources.component.css"]
 })
 export class ResourcesComponent implements OnInit {
-  @ViewChildren('inputs') public inputs: ElementRef<HTMLInputElement>[];
+  @ViewChildren("inputs") public inputs: ElementRef<HTMLInputElement>[];
 
   uncheck() {
     this.inputs.forEach(check => {
       check.nativeElement.checked = false;
-    })
+    });
   }
-  j:number=0;
-ans2:[]=[];
+  j: number = 0;
+  ans2: [] = [];
   uniqueArray = [];
- disable:boolean;
+  disable: boolean;
   resources: [] = [];
   viewresources: [] = [];
   level: [] = [];
   res: number[] = [];
-  sresId:[]=[];
-  ans:[]=[];
+  sresId: [] = [];
+  ans: [] = [];
   sres: number;
-  i:number=0;
+  i: number = 0;
   uId;
-  result:[]=[];
-  resourcesresult:[]=[];
+
+  result: [] = [];
+  resourcesresult: [] = [];
   user: any;
-  rName:String;
+  rName: String;
   default: string = "All";
   toBeAdded: number;
   myControl = new FormControl();
@@ -60,26 +71,23 @@ ans2:[]=[];
   }
 
   get() {
-
-  //   this.resourcesService.resources().subscribe((data: any[]) => {
-  //     console.log(data);
-  //  });
+    //   this.resourcesService.resources().subscribe((data: any[]) => {
+    //     console.log(data);
+    //  });
     this.resourcesService.getResources().subscribe((data: any[]) => {
       console.log(data);
-    
+
       this.resources = data;
       this.resources.forEach(x => {
         this.options.push(x.resName);
         this.viewresources.push(x);
-       
-     });
+      });
     });
     this.resourcesService.getLevel().subscribe((data: any[]) => {
       console.log(data);
       this.level = data;
       this.level.forEach(x => {
         this.options.push(x.levelName);
-       
       });
     });
   }
@@ -87,19 +95,16 @@ ans2:[]=[];
   search(event: MatAutocompleteSelectedEvent) {
     alert(event.option.value);
     if (event.option.value) {
-     
       this.viewresources.forEach(x => {
         if (event.option.value == x.resName) {
           console.log("success" + x.resId + "" + x.resName);
           this.sres = x.resId;
           this.resourcesService.getResId(this.sres).subscribe((data: any[]) => {
             this.resources = [];
-            
+
             this.resources.push(data);
-          
           });
         } else if (event.option.value == x.level.levelName) {
-        
           this.resources = [];
           this.sres = x.resId;
           this.resourcesService.getResId(this.sres).subscribe((data: any[]) => {
@@ -111,33 +116,53 @@ ans2:[]=[];
           this.resources = [];
           this.viewresources.forEach(x => {
             this.resources.push(x);
-            
           });
         }
       });
     }
   }
 
-
-
-
   checked($event) {
-     //alert("checked" + event.source.value);
-    
+    //alert("checked" + event.source.value);
+
     if ($event.target.checked == true) {
-     
       //  this.isChecked = !this.isChecked;
       this.viewresources.forEach(x => {
         if ($event.target.value == x.resName) {
           console.log("success" + x.resId + "" + x.resName);
           this.res.push(x.resId);
           // this.uId=x.resId;
-        this.res.forEach(x=>{
-          console.log("res"+x)
-;        })
+          this.res.forEach(x => {
+            console.log("res" + x);
+          });
           this.toBeAdded = this.res.length;
-   
         }
+  this.user = sessionStorage.getItem("user");
+    this.resourcesService.getUser(this.user).subscribe((data: any[]) => {
+      this.result.push(data);
+      this.result.forEach(x => {
+        this.resourcesresult = x.resources;
+      });
+      this.resourcesresult.forEach(x => {
+        this.sresId.push(x.resId);
+        
+      });
+      console.log("ffgg"+this.sresId.length);
+    });
+
+if (this.sresId.length !== 0) {
+    console.log("hjvc"+this.sresId.length);
+        this.uniqueArray = this.removeDuplicates(this.sresId);
+        console.log("thisss" + this.uniqueArray.length);
+        var a1 = this.res;
+var a2 = this.uniqueArray;
+
+let missing = a1.filter(item => a2.indexOf(item) < 0);
+console.log(missing+"missingg");
+
+}
+
+
       });
     } else {
       //this.res = [];
@@ -154,87 +179,58 @@ ans2:[]=[];
         }
       });
     }
-   
   }
 
-
   add() {
-     
-    this.user = sessionStorage.getItem("user");
-    this.resourcesService.getUser(this.user).subscribe((data: any[]) => {
-       this.result.push(data);
-       this.result.forEach(x =>{
-         this.resourcesresult=x.resources;
-       })
-       this.resourcesresult.forEach(x =>{
-         this.sresId.push(x.resId);
-         //console.log("ffgg"+x.resId);
-       })
-       this.uniqueArray = this.removeDuplicates(this.sresId);
-       console.log("thisss"+this.uniqueArray.length);
-     
-      });
-     this.ans2= this.findCommonElement(this.res,this.uniqueArray);
-this.ans2.forEach(x=>{
-  console.log("bhjcL"+x);
   
-})
 
-
-
-
-
-    this.resourcesService
+ this.resourcesService
       .create(this.user, this.res)
       .subscribe((data: any[]) => {
         //  console.log("data" + data);
         alert("Resources Added!!!");
-       
-      });
+      }); 
+
+     
     
+     
+   
+
     this.res = [];
     this.toBeAdded = this.res.length;
     console.log("this.res.length:" + this.res.length);
-   
- 
-   
-   
-       //this.disable=false;
-    
+
+    //this.disable=false;
   }
 
-   removeDuplicates(array) {
-  let x = {};
-  array.forEach(function(i) {
-    if(!x[i]) {
-      x[i] = true
-    }
-  })
-  console.log(Object.keys(x));
-  return Object.keys(x);
-};
-  findCommonElement(array1, array2) { 
-      
-    // Loop for array1 
-    for(let i = 0; i < array1.length; i++) { 
-          
-        // Loop for array2 
-        for(let j = 0; j < array2.length; j++) { 
-              
-            // Compare the element of each and 
-            // every element from both of the 
-            // arrays 
-            if(array1[i] === array2[j]) { 
-              console.log("gug");
-                // Return if common element found 
-               array1.splice(i,1);
-             return array1;
-                
-            } 
-        } 
-    } 
-      
-    // Return if no common element exist 
-    return (array1); 
-}  
+  removeDuplicates(array) {
+    let x = {};
+    array.forEach(function(i) {
+      if (!x[i]) {
+        x[i] = true;
+      }
+    });
+    console.log(Object.keys(x));
+    return Object.keys(x);
+  }
+  arrayDiff(arr1, arr2) {
+    var diff = {};
+
+    diff.arr1 = arr1.filter(function(value) {
+        if (arr2.indexOf(value) === -1) {
+            return value;
+        }
+    });
+
+    diff.arr2 = arr2.filter(function(value) {
+        if (arr1.indexOf(value) === -1) {
+            return value;
+        }
+    });
+
+    diff.concat = diff.arr1.concat(diff.arr2);
+
+    return diff;
+}
+
 }
