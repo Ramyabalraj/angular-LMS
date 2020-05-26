@@ -44,22 +44,21 @@
 				</div>
 			</div>
 
-		</div> -->niw
+		</div> -->
 <div *ngFor="let user of users ">
 	<div class="row justify-content-center">
 
 		<div *ngFor="let resource of user.resources ">
 
 
-			<div class="col-auto mb-4" style="height:70%">
-				<div class="column">
-					<figure class="snip1581" style="width: 28rem; height:50%; ">
+			<div   class="col-auto mb-6" > 
+    <div class="column">
+  <figure  class="snip1581">
 
-						<div class="layer" style="padding:26px;size:40%;">
-							<!-- Block parent element -->
-
-							<img src="{{resource.resImg}}"   alt="John Doe">
-
+   <div class="layer" style="padding:26px;size:40%;"> <!-- Block parent element -->
+   
+      <img src="{{resource.resImg}}"   alt="John Doe">
+   
     </div>
 							<div class="container" style="background:#3F51B5;">
 								<b>{{resource.resTech}}</b>

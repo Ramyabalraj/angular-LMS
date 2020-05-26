@@ -62,7 +62,6 @@ h4 {
       color: white;
       font-size: 24px;
 }
-
 @import url(https://fonts.googleapis.com/css?family=Poppins:300,700);
 .snip1581 {
    /* border-radius: 5px; */
@@ -111,22 +110,22 @@ h4 {
     position: relative;
  object-fit: cover;
    width:100%;
-   top:-12px;
-   bottom:90px;
-   
+   top:-15px;
+   bottom:190px;
+   vertical-align: text-top;
     border-top-right-radius: 25px;
      border-top-left-radius: 25px;
-  padding:30px;
+  padding:45px;
     overflow:hidden;
   text-align: center;
    background-color: #3F51B5;
  color: white;
- margin-bottom: 10px;
+ margin-bottom: 2px;
 }
 .layer {
   position: sticky;
     background-color: white;
-   width:28rem;
+   width:31rem;
    height:70%;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); 
      display:table-cell; vertical-align:middle; text-align:center;
