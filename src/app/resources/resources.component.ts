@@ -72,18 +72,10 @@ export class ResourcesComponent implements OnInit {
 
 
   get() {
-  this.data();
+ 
     this.resourcesService.getResources().subscribe((data1: any[]) => {
       console.log(data1);
-      for(var i=0;i<1;i++){
-        var once=0+i;
-  if(once == 0){
-  console.log("bhvc"+once);
-  //  this.resourcesService.resources().subscribe((data: any[]) => {
-  //       console.log(data);
-  //    });
-}
-      }
+  
     
 
       this.resources = data1;
@@ -101,17 +93,17 @@ export class ResourcesComponent implements OnInit {
     });
   }
 
-data(){
-if(this.resources.length == 0){
-  console.log("bhvc"+this.resources.length);
-   this.resourcesService.resources().subscribe((data: any[]) => {
-        console.log(data);
-     });
-}
-else{
-  console.log("Happy coding!!!");
-}
-}
+// data(){
+// if(this.resources.length == 0){
+//   console.log("bhvc"+this.resources.length);
+//    this.resourcesService.resources().subscribe((data: any[]) => {
+//         console.log(data);
+//      });
+// }
+// else{
+//   console.log("Happy coding!!!");
+// }
+// }
 
   search(event: MatAutocompleteSelectedEvent) {
     alert(event.option.value);
