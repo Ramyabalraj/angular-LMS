@@ -12,12 +12,20 @@
   margin-left: 16px; /* Same as the width of the sidenav */
   padding: 0px 10px;
 }
-
+.text-block {
+  position: absolute;
+  top: 9px;
+ 
+ font-size:30px;
+  color: white;
+ 
+  
+}
 .spacer{
-  padding:190px;
+  padding:140px;
 }
 .bspacer{
-  padding:205px;
+  padding:1px;
 }
 .dsapcer{
 top: 64px;
