@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import {HttpModule} from '@angular/http';
 import { LoginService } from './login/login-service.service';
 import { LoginComponent } from './login/login.component';
 import {  ReactiveFormsModule } from '@angular/forms';
@@ -30,16 +31,18 @@ import { NavComponent } from './nav/nav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AboutComponent } from './about/about.component';
 import { HackComponent } from './hack/hack.component';
+import { LinkComponent } from './link/link.component';
+import { SampleUrlService } from './sample/sample-url.service';
 @NgModule({
   imports:      [ BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule , HttpClientModule , RouterModule , BrowserAnimationsModule,MatToolbarModule,MatIconModule,MatButtonModule,
     FormsModule,MatCheckboxModule,
     MatCardModule,MatSidenavModule,
     MatSlideToggleModule,
- MatAutocompleteModule,
+ MatAutocompleteModule,HttpModule,
     MatFormFieldModule,
     MatInputModule  ],
-  declarations: [ AppComponent, HelloComponent, LoginComponent, CreateuserComponent, HomeComponent, RegisteruserComponent, ResourcesComponent, SampleComponent, NavComponent, AboutComponent, HackComponent],
-  providers:    [LoginService,CreateUserService, ResourcesService],
+  declarations: [ AppComponent, HelloComponent, LoginComponent, CreateuserComponent, HomeComponent, RegisteruserComponent, ResourcesComponent, SampleComponent, NavComponent, AboutComponent, HackComponent, LinkComponent],
+  providers:    [LoginService,CreateUserService, ResourcesService, SampleUrlService],
   bootstrap:    [  AppComponent ]
 })
 export class AppModule { }

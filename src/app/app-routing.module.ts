@@ -10,6 +10,7 @@ import { SampleComponent } from "./sample/sample.component";
 import { NavComponent } from "./nav/nav.component";
 import { AboutComponent } from './about/about.component';
 import { HackComponent } from './hack/hack.component';
+import { LinkComponent } from './link/link.component';
 const routes: Routes = [
   { path: "", component: LoginComponent },
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
        { path: "", component: HomeComponent },
         { path: "sample", component: SampleComponent },
         { path: "hack", component: HackComponent },
-        { path: "about", component: AboutComponent }
+        { path: "about", component: AboutComponent },
+        { path: "link", component: LinkComponent }
     ]
   },
   { path: "register", component: RegisteruserComponent },
