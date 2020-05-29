@@ -13,7 +13,7 @@ export class LinkComponent implements OnInit {
   constructor(private sampleUrlService: SampleUrlService) {}
 
   ngOnInit() {
-    this.lmsLink = "";
+    this.lmsLink="";
     this.lmsVideo = "";
     this.browser = "";
     this.get();
@@ -23,27 +23,43 @@ export class LinkComponent implements OnInit {
   }
 
   get() {
-     console.log("b"+ this.lmsLink);
-    this.sampleUrlService.getUrl().subscribe((data1: any[]) => {
+     
+   this.sampleUrlService.getUrl().subscribe((data1: any[]) => {
       console.log(data1);
-      this.lmsLink = data1;
-      this.browser = 'b1';
-       });
-      console.log(this.css);
-      document.querySelector(".browser2").setAttribute("src", this.lmsLink);
-       console.log("hres" + this.lmsLink);
-    if(this.lmsLink == ""){
-      this.sampleUrlService.getVideo().subscribe((data2: any[]) => {
-      console.log("hiii"+data2);
-      this.lmsVideo = data2;
-      this.browser = 'b2';
-    console.log("hryy" + this.browser);
-     console.log(this.lmsVideo + "this.lmsVideo");
-      document.querySelector(".browser2").setAttribute("src", this.lmsVideo );
+  this.lmsLink=( data1);});
+   this.sampleUrlService.getVideo().subscribe((data2: any[]) => {
+      console.log(data2);
+  this.lmsVideo=( data2);});
+  if(this.lmsVideo == "read"){
+  this.browser = 'b1';
+ document.querySelector(".browser2").setAttribute("src", this.lmsLink);
+
+  }
+  else if(this.lmsVideo == "video"){
+ this.browser = 'b2';
+ document.querySelector(".browser2").setAttribute("src", this.lmsLink);
+  }
+  
+   else{
+     alert("TRY");
+   }   
+    
        
-    });
-    }
-   
+    //   console.log(this.css);
+    //    console.log("hres" + this.lmsLink);
+    // if(this.lmsLink == ""){
+    //   this.sampleUrlService.getVideo().subscribe((data2: any[]) => {
+    //   console.log("hiii"+data2);
+    //   this.lmsVideo = data2;
+    //   this.browser = 'b2';
+    // console.log("hryy" + this.browser);
+    //  console.log(this.lmsVideo + "this.lmsVideo");
+    //   document.querySelector(".browser2").setAttribute("src", this.lmsVideo );
+       
+    // });
+    // }
+    this.lmsLink = "";
+    this.lmsVideo = "";
    
   }
 

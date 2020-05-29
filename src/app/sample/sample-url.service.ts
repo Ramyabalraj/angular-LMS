@@ -5,15 +5,15 @@ import { Observable,of } from 'rxjs';
 export class SampleUrlService {
 url;
 video;
-  constructor() {this.url="";this.video=""; }
+  constructor() { }
 
 
 giveUrl(url){
-  this.url=url;
-  console.log(this.url+"hck");
-  
+  this.url=(url);
+   
 }
 getUrl(): Observable<any[]> {
+   console.log(this.url+"hck");
     return of(this.url);
 }
 giveVideo(v){

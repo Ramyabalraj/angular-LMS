@@ -28,13 +28,15 @@ fetchedHtml;
   goToLink($event){
     console.log("vQV"+$event.target.value);
     this.sampleUrlService.giveUrl($event.target.value);
+     this.sampleUrlService.giveVideo("read");
     this.router.navigateByUrl("nav/link"); 
     // window.open('https://www.w3schools.com/', '_self');
 
 }
   goToUrl($event){
     console.log("vQV"+$event.target.value);
-    this.sampleUrlService.giveVideo($event.target.value);
+    this.sampleUrlService.giveUrl($event.target.value);
+     this.sampleUrlService.giveVideo("video");
     this.router.navigateByUrl("nav/link"); 
     // window.open('https://www.w3schools.com/', '_self');
 
