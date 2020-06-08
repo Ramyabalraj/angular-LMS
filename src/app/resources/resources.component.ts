@@ -43,7 +43,7 @@ export class ResourcesComponent implements OnInit {
   sres: number;
   i: number = 0;
   uId;
-
+findResources;
   result: [] = [];
   resourcesresult: [] = [];
   user: any;
@@ -57,6 +57,7 @@ export class ResourcesComponent implements OnInit {
 
   ngOnInit() {
     this.get();
+   
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(""),
       map(value => this.filterl(value))
@@ -75,10 +76,14 @@ export class ResourcesComponent implements OnInit {
  
     this.resourcesService.getResources().subscribe((data1: any[]) => {
       console.log(data1);
-  
-    
-
-      this.resources = data1;
+  this.resources = data1;
+   if(this.resources.length == 0){
+    alert();
+    this.data();
+  }
+else{
+  alert("bxu");
+}
       this.resources.forEach(x => {
         this.options.push(x.resName);
         this.viewresources.push(x);
@@ -93,17 +98,16 @@ export class ResourcesComponent implements OnInit {
     });
   }
 
-// data(){
-// if(this.resources.length == 0){
-//   console.log("bhvc"+this.resources.length);
-//    this.resourcesService.resources().subscribe((data: any[]) => {
-//         console.log(data);
-//      });
-// }
-// else{
-//   console.log("Happy coding!!!");
-// }
-// }
+data(){
+
+   this.resourcesService.resources().subscribe((data: any[]) => {
+        console.log(data);
+        
+     });
+
+  
+
+}
 
   search(event: MatAutocompleteSelectedEvent) {
     alert(event.option.value);
