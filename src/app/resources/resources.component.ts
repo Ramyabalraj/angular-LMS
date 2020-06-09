@@ -62,7 +62,7 @@ findResources;
       startWith(""),
       map(value => this.filterl(value))
     );
-    this.get();
+   
   }
   private filterl(value: string): string[] {
     const filterValue = value.toLowerCase();
@@ -85,18 +85,11 @@ findResources;
 else{
  
 }
-      this.resources.forEach(x => {
-        this.options.push(x.resName);
-        this.viewresources.push(x);
+     
       });
-    });
-    this.resourcesService.getLevel().subscribe((data: any[]) => {
-      console.log(data);
-      this.level = data;
-      this.level.forEach(x => {
-        this.options.push(x.levelName);
-      });
-    });
+   
+    this.onceMore();
+    
   }
 
 data(){
@@ -110,7 +103,26 @@ data(){
 
 }
 
-
+ onceMore() {
+ 
+    this.resourcesService.getResources().subscribe((data1: any[]) => {
+      console.log(data1);
+  this.resources = data1;
+  
+      this.resources.forEach(x => {
+        this.options.push(x.resName);
+        this.viewresources.push(x);
+      });
+    });
+    this.resourcesService.getLevel().subscribe((data: any[]) => {
+      console.log(data);
+      this.level = data;
+      this.level.forEach(x => {
+        this.options.push(x.levelName);
+      });
+    });
+    
+  }
   search(event: MatAutocompleteSelectedEvent) {
     alert(event.option.value);
     if (event.option.value) {
