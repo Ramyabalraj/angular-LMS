@@ -62,6 +62,7 @@ findResources;
       startWith(""),
       map(value => this.filterl(value))
     );
+    this.get();
   }
   private filterl(value: string): string[] {
     const filterValue = value.toLowerCase();
@@ -78,11 +79,11 @@ findResources;
       console.log(data1);
   this.resources = data1;
    if(this.resources.length == 0){
-    alert();
+  
     this.data();
   }
 else{
-  alert("bxu");
+ 
 }
       this.resources.forEach(x => {
         this.options.push(x.resName);
@@ -108,6 +109,7 @@ data(){
   
 
 }
+
 
   search(event: MatAutocompleteSelectedEvent) {
     alert(event.option.value);
