@@ -28,7 +28,7 @@ this.get();
   }
 create(){
   if(!this.model.userId){
-alert(JSON.stringify(this.model));
+//alert(JSON.stringify(this.model));
 this.createUserService.createUser(this.model).subscribe((data: any[])=>{
       console.log(data);
       this.users = data;

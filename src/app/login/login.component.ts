@@ -18,7 +18,7 @@ users =[];
   }
 
 login(){
-  alert(JSON.stringify(this.model));
+ // alert(JSON.stringify(this.model));
   this.loginService.loginUser(this.model).subscribe((data: any[])=>{
       console.log("login details"+data);
       this.users = data;
